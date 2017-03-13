@@ -20,6 +20,7 @@ import sys
 import os
 import json 
 import synapseutils
+import synapseclient
 from synapseclient import Entity, Project, Folder, File, Link, Team 
 
 
