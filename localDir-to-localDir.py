@@ -6,7 +6,8 @@
 
 		Learned:  
 		# from itertools import product # this is for nested for loops
-		# Generators are for loops in genral https://wiki.python.org/moin/Generators
+		# more info on itertools: https://docs.python.org/3/library/itertools.html#recipes
+		# Generators are for loops/memory cach in general https://wiki.python.org/moin/Generators
 		# Python allows nested functions
 
 	Input:
