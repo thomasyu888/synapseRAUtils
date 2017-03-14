@@ -22,6 +22,7 @@ import sys
 import os
 import json 
 import synapseutils
+import synapseclient
 from synapseclient import Entity, Project, Team
 
 def login(syn, user_name, user_pass):
