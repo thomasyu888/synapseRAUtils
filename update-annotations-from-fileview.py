@@ -4,11 +4,11 @@
 
 import synapseclient
 import synapseutils 
-import pandas as pd
-import request 
+import pandas 
+import requests 
 
 filename = 'userDefined_annotations.csv'
-user_metaData_annotation = pd.read_csv(filename, index_col='synapseId')
+user_metaData_annotation = pandas.read_csv(filename, index_col='synapseId')
 t_data = user_metaData_annotation.transpose() # column access is faster 
 t_data = t_data.to_dict()
 
