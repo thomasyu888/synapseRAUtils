@@ -15,6 +15,7 @@ file_name = 'updated_annotations.csv'
 
 # TODO: check src and dst absolute path 
 # TODO: check user input 
+# TODO: check columns length and set membership 
 
 def getCSV(path):
 	path = os.path.abspath(path)
