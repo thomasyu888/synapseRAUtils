@@ -1,19 +1,17 @@
-'''
-	What it does: 
-		Takes a list of files on local machine/server directory (source),  
-		subsets the files by pattern-matching (ex. files with '.csv' extension)
-		stores them on a synapse data-folder as a synapse File object 
+'''What it does: 
+	Takes a list of files on local machine/server directory (source),  
+	subsets the files by pattern-matching (ex. files with '.csv' extension)
+	stores them on a synapse data-folder as a synapse File object 
 	
-	Input:
-	Output: 
+Input:
+Output: 
 
-	Example (bash commandline run): 
+Example (bash commandline run): 
 
-	Code - Status: in progress
-		TODO: 
-
-	Unit Testing: 
-
+Code - Status: in progress
+	TODO: argparser
+	TODO: abs path check
+Unit Testing: 
 '''
 
 import sys
@@ -30,7 +28,6 @@ from synapseclient import Entity, Project, Folder, File, Link, Team
 # file_description = sys.argv[4]
 # source_path = sys.argv[5]
 # pattern_match = sys.argv[6]
-
 
 syn = synapseclient.Synapse()
 syn.login(user_name, user_pass)
