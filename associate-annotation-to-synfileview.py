@@ -1,4 +1,3 @@
-
 '''What it Does: 
 Create a user defined annotation mapping to each files synapse id. 
 	1) Read sage annotations dictionary (File type: yml or jason)
