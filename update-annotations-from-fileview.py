@@ -1,4 +1,4 @@
-'''Get file View query and based on user-defined schema change the anootation values of each matching field 
+'''Get file View query and based on user-defined schema change the annotation values of each matching field 
    !!! Only works if file view (and its associated schema) exist !!! 
 '''
 import synapseclient
@@ -16,6 +16,9 @@ file_name = 'updated_annotations.csv'
 # TODO: check src and dst absolute path 
 # TODO: check user input 
 # TODO: check columns length and set membership 
+# TODO: filter by rows (query = allow where clause)
+# TODO: Do we need to change id to synapseID?
+# TODO: argparser
 
 def getCSV(path):
 	path = os.path.abspath(path)
