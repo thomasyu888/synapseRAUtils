@@ -1,6 +1,5 @@
-'''
-	practice restful API calls to synapse file view 
-	Format helps nasim to parse through steps. It will change after comfort zone threshold has been reached.
+'''practice restful API calls to synapse file view 
+Format helps nasim to parse through steps. It will change after comfort zone threshold has been reached.
 '''
 import synapseclient
 import synapseutils 
