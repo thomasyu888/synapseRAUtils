@@ -1,25 +1,22 @@
-'''
-	What it does: 
-		Takes files on local machine/server directory (source),  
-		subsets the files by pattern-matching (ex. files with '.txt' extension)
-		copies them on a destination directory
+'''What it does: 
+   Takes files on local machine/server directory (source),  
+   subsets the files by pattern-matching (ex. files with '.txt' extension)
+   copies them on a destination directory
 
-		Learned:  
-		# from itertools import product # this is for nested for loops
-		# more info on itertools: https://docs.python.org/3/library/itertools.html#recipes
-		# Generators are for loops/memory cach in general https://wiki.python.org/moin/Generators
-		# Python allows nested functions
+Learned:  
+	# from itertools import product # this is for nested for loops
+	# more info on itertools: https://docs.python.org/3/library/itertools.html#recipes
+	# Generators are for loops/memory cach in general https://wiki.python.org/moin/Generators
+	# Python allows nested functions
 
-	Input:
-	Output: 
+Input:
+Output: 
 
-	Example (bash commandline run): 
+Example (bash commandline run): 
+Code - Status: in progress
+	TODO: abs path check
 
-	Code - Status: in progress
-		TODO: 
-
-	Unit Testing: 
-
+Unit Testing: 
 '''
 import os
 import shutil
