@@ -20,22 +20,22 @@ file_name = 'updated_annotations.csv'
 # TODO: Do we need to change id to synapseID?
 # TODO: argparser
 
-def getCSV(path):
+def get_csv(path):
 	path = os.path.abspath(path)
 	df = pandas.read_csv(path, index_col='synapseId')
 	return(df)
 
-def fastAccess(df):
+def fast_access(df):
 	df = df.T 
 	dc = df.to_dict()
 	return df, dc
 
-def connectToSynClient():
+def connect_synclient():
 	syn = synapseclient.Synapse()
 	syn.login()
 	return(syn)
 
-def downloadQueryAndmakeDf(syn, query, index, fileViewIds):
+def query2df(syn, query, index, fileViewIds):
 	view = syn.tableQuery(query + fileViewIds[index])
 	df = view.asDataFrame()
 	return(df)
@@ -48,13 +48,13 @@ if '.csv' not in src_path:
 	print("User-defined annotations is not a csv file")
 	
 else:
-	syn = connectToSynClient()
+	syn = connect_synclient()
 
 	'''use-case: Multiple file-views to annotate'''
 	if len(fileViewIds) > 1:
 		for i, element in enumerate(fileViewIds):
 			index = i	
-			view_df = downloadQueryAndmakeDf(syn, query, index, fileViewIds)
+			view_df = query2df(syn, query, index, fileViewIds)
 			file_synIds = uniqueIds(view_df, tag) 
 			fileView.append(file_synIds)
 			# print(fileView)
@@ -62,12 +62,12 @@ else:
 	'''use-case: Only one file-view to annotate''' 
 	if len(fileViewIds) == 1:
 		index = 0	
-		view_df = downloadQueryAndmakeDf(syn, query, index, fileViewIds)
+		view_df = query2df(syn, query, index, fileViewIds)
 		file_synIds = uniqueIds(view_df, tag) 
 		fileView.append(file_synIds)
 		# print(fileView[0])
 
-	user_df = getCSV(src_path)
+	user_df = get_csv(src_path)
 
 	'''make files indecies of your dataframe'''
 	if tag in view_df.columns: 
