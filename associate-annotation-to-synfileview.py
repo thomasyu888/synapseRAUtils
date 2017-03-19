@@ -1,14 +1,13 @@
 
-'''
-	What it Does: 
-		Create a user defined annotation mapping to each files synapse id. 
-			1) Read sage annotations dictionary (File type: yml or jason)
-			2) Subset dictionary from sage minimal annotations based on an example study
-			3) Associate file names (file synapse ID) to their annotations and create a 
-			   pandas meta-data or dictionary (file name | synapse ID , annotation)
+'''What it Does: 
+Create a user defined annotation mapping to each files synapse id. 
+	1) Read sage annotations dictionary (File type: yml or jason)
+	2) Subset dictionary from sage minimal annotations based on an example study
+	3) Associate file names (file synapse ID) to their annotations and create a 
+	pandas meta-data or dictionary (file name | synapse ID , annotation)
 
-	Input: sage annotation path, list of subset keys, 
-	Output:
+Input: sage annotation path, list of subset keys, 
+Output:
 '''
 
 import json
@@ -35,9 +34,7 @@ if '.yml' in annot_path:
 
 print(type(annot_dictionary))
 
-'''
-	Subset synapse dictionary based on users schema (colnames)
-'''
+#Subset synapse dictionary based on users schema (colnames)
 print(annot_dictionary.keys())
 
 user_schema = ['assay', 'dataType', 'dataSubtype', 'fileFormat', 'species']
