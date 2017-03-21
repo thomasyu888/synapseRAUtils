@@ -8,13 +8,13 @@ Output: The skeleton for two challenges site with initial wiki, two teams (admin
 Example (run on bash): python challenge-skeleton.py me mypass multi-driver
 
 Code - Status: in progress
-    TODO: 
-        1) pass strings with ASCII space
-        2) try to create, then catch error if challenge or team exists 
-        3) add admin team to both sites with admin access 
-        4) add participants
+    TODO:
+        1) try to create, then catch error if challenge or team exists
+        2) add admin team to both sites with admin access
+        3) add participants
+        4) use argparser
 
-Unit Testing: 
+Unit Testing:
 '''
 import sys
 import os
@@ -22,9 +22,6 @@ import json
 import synapseutils
 import synapseclient
 from synapseclient import Entity, Project, Team
-
-def login(syn, user_name, user_pass):
-    syn.login(user_name, user_pass)
 
 def creatTeam(syn, team_name, desc, privacy):
     syn.store(Team(name=team_name, description=desc, canPublicJoin=privacy))
@@ -47,32 +44,20 @@ def createChallengeWidget(syn, project_live, team_part):
     challenge = syn.restGET('/entity/' + project_live_id + '/challenge')
 
 def main():
-'''list of user parameters:
-   Synapse employee user name: sys.argv[1]
-   Synapse employee user pass: sys.argv[2]
-   
-        Challenge Team name:         sys.argv[3] # without space 
-        Challenge Project name:      sys.argv[4] # TODO: pass strings with ASCII space
-        
-   # TODO: try to create, then catch error if challenge or team exists 
-   # TODO: replace with argparser
-'''
-    user_name = sys.argv[1]
-    user_pass = sys.argv[2]
-    team_name = sys.argv[3]
-    project_name = 'X-Driver prediction Dream challeneg' 
 
-    '''Sage bionetworks employee login
-       TODO: change to case where user is known/remembered via api 
+    team_name = sys.argv[1]
+    project_name = 'X-Driver prediction Dream challenge'
+
+    '''Sage Bionetworks employee login
     '''
     syn = synapseclient.Synapse()
-    login(syn, user_name, user_pass) 
+    syn.login()
 
     '''Create two teams for challenge sites.
        1) participant and 2) administrator
     '''
-    team_part = team_name  + ' Participants'
-    team_admin = team_name  + ' Admin'
+    team_part = team_name + ' Participants'
+    team_admin = team_name + ' Admin'
     privacy = True
     desc = ''
 
@@ -90,7 +75,7 @@ def main():
 
     '''A pre-defined wiki project is used as initial template for challenge sites.
        To copy over the template synapseutils.copyWiki() function is used with template 
-       ID as source and new challenge project entity syn ID as destination.
+       ID as source and new challenge project entity synID as destination.
     '''
     source_project_id = 'syn2769515' 
 
