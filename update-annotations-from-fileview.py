@@ -1,82 +1,64 @@
-'''Get file View query and based on user-defined schema change the annotation values of each matching field 
-   !!! Only works if file view (and its associated schema) exist !!! 
-'''
+import os
+import json
+import csv
+import pandas
+import synapseutils
 import synapseclient
-import synapseutils 
-import pandas 
-import os 
+from synapseclient import Entity, Project, Folder, File, Link, Team
 
+# user input
 src_path = 'userDefined_annotations.csv'
-fileViewIds = ["syn8455906"] 
-fileView = []
-query = "select * from "
-tag = "id" # is this consistant through synapse 
-file_name = 'updated_annotations.csv'
+tableId = 'syn8455906'
 
-# TODO: check src and dst absolute path 
-# TODO: check user input 
-# TODO: check columns length and set membership 
-# TODO: filter by rows (query = allow where clause)
-# TODO: Do we need to change id to synapseID?
-# TODO: argparser
+# Variables 
+synID = 'id'
+query = 'select * from '
+updated_file_name = tableId + '_updated_annotations.csv'
 
-def get_csv(path):
-	path = os.path.abspath(path)
-	df = pandas.read_csv(path, index_col='synapseId')
-	return(df)
+def csv2df(path):
+    path = os.path.abspath(path)
+    df = pandas.read_csv(path, index_col='id')
+    return df
 
-def fast_access(df):
-	df = df.T 
-	dc = df.to_dict()
-	return df, dc
+def query2df(syn, query, tableId):
+    view = syn.tableQuery(query + tableId)
+    view = list(csv.DictReader(file(view.filepath)))
+    df = pandas.DataFrame(view)
+    return df
 
-def connect_synclient():
-	syn = synapseclient.Synapse()
-	syn.login()
-	return(syn)
+syn = synapseclient.login(silent=True)
 
-def query2df(syn, query, index, fileViewIds):
-	view = syn.tableQuery(query + fileViewIds[index])
-	df = view.asDataFrame()
-	return(df)
+view_df = query2df(syn, query, tableId)
+view_df.set_index(synID, inplace=True, drop=False)
+view_df.index.name = 'id' 
 
-def uniqueIds(df, tag):
-	unique_file_synIds = set(df[tag])
-	return(unique_file_synIds)
+user_df = csv2df(src_path)
 
-if '.csv' not in src_path: 
-	print("User-defined annotations is not a csv file")
-	
-else:
-	syn = connect_synclient()
+view_df.update(user_df)
 
-	'''use-case: Multiple file-views to annotate'''
-	if len(fileViewIds) > 1:
-		for i, element in enumerate(fileViewIds):
-			index = i	
-			view_df = query2df(syn, query, index, fileViewIds)
-			file_synIds = uniqueIds(view_df, tag) 
-			fileView.append(file_synIds)
-			# print(fileView)
+dst_path = os.path.abspath('.') + '/' + updated_file_name
+view_df.to_csv(path_or_buf=dst_path, sep=',', index=False)
 
-	'''use-case: Only one file-view to annotate''' 
-	if len(fileViewIds) == 1:
-		index = 0	
-		view_df = query2df(syn, query, index, fileViewIds)
-		file_synIds = uniqueIds(view_df, tag) 
-		fileView.append(file_synIds)
-		# print(fileView[0])
+# information on rest api calls as transaction 
+# http://docs.synapse.org/rest/index.html
+# http://docs.synapse.org/rest/org/sagebionetworks/repo/model/table/TableUpdateRequest.html
 
-	user_df = get_csv(src_path)
+# Credit: https://gist.github.com/kdaily/0db938589a08f0c7d8317d0cf2924167#file-tableUpdateTransaction-py
+file_handle_id = synapseclient.multipart_upload.multipart_upload(syn, updated_file_name)
 
-	'''make files indecies of your dataframe'''
-	if tag in view_df.columns: 
-		view_df = view_df.set_index(tag)
-		view_df.index.name = 'synapseId'
+uploadRequest = {u'tableId': tableId, u'linesToSkip': 0, u'concreteType': u'org.sagebionetworks.repo.model.table.UploadToTableRequest', u'uploadFileHandleId': file_handle_id, 
+                 u'csvTableDescriptor': {u'escapeCharacter': u'\\', u'isFirstLineHeader': True, u'separator': u',', u'lineEnd': '\n', u'quoteCharacter': u'"'}}
 
-	'''replace annotation based on user annotations where synID's match (pandas matches indexes)'''
-	view_df[user_df.columns] = user_df
+request = {u'concreteType': u'org.sagebionetworks.repo.model.table.TableUpdateTransactionRequest',
+           u'entityId': tableId,
+           u'changes': [uploadRequest]}
 
-	'''save as csv file'''
-	dst_path = os.path.abspath('.') + file_name
-	view_df.to_csv(path_or_buf=dst_path, sep=',')
+endpoint = 'https://repo-prod.prod.sagebase.org/repo/v1'
+uri = '/entity/{tableId}/table/transaction/async/'.format(tableId=tableId)
+result = syn._waitForAsync(uri, request, endpoint)
+
+
+
+
+
+
