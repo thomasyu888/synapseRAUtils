@@ -6,59 +6,61 @@ import synapseutils
 import synapseclient
 from synapseclient import Entity, Project, Folder, File, Link, Team
 
-# user input
+## user input
 src_path = 'userDefined_annotations.csv'
 tableId = 'syn8455906'
 
-# Variables 
-synID = 'id'
+## Global Variables 
 query = 'select * from '
 updated_file_name = tableId + '_updated_annotations.csv'
 
+
 def csv2df(path):
     path = os.path.abspath(path)
-    df = pandas.read_csv(path, index_col='id')
+    df = pandas.read_csv(path).dropna(how='all')
+    df.set_index('id', inplace=True, drop=False)
     return df
+
 
 def query2df(syn, query, tableId):
     view = syn.tableQuery(query + tableId)
     view = list(csv.DictReader(file(view.filepath)))
     df = pandas.DataFrame(view)
+    df.set_index('id', inplace=True, drop=False)
     return df
 
-syn = synapseclient.login(silent=True)
 
-view_df = query2df(syn, query, tableId)
-view_df.set_index(synID, inplace=True, drop=False)
-view_df.index.name = 'id' 
+def main():
+    syn = synapseclient.login(silent=True)
+    view_df = query2df(syn, query, tableId)
+    user_df = csv2df(src_path)
+    view_df.update(user_df)
 
-user_df = csv2df(src_path)
+    dst_path = os.path.abspath('.') + '/' + updated_file_name
+    view_df.to_csv(path_or_buf=dst_path, sep=',', index=False)
 
-view_df.update(user_df)
+    # information on rest api calls as transaction 
+    # http://docs.synapse.org/rest/index.html
+    # http://docs.synapse.org/rest/org/sagebionetworks/repo/model/table/TableUpdateRequest.html
+    # http://docs.synapse.org/rest/#org.sagebionetworks.repo.model.table.EntityView
 
-dst_path = os.path.abspath('.') + '/' + updated_file_name
-view_df.to_csv(path_or_buf=dst_path, sep=',', index=False)
+    # Credit: https://gist.github.com/kdaily/0db938589a08f0c7d8317d0cf2924167#file-tableUpdateTransaction-py
+    file_handle_id = synapseclient.multipart_upload.multipart_upload(syn, updated_file_name)
 
-# information on rest api calls as transaction 
-# http://docs.synapse.org/rest/index.html
-# http://docs.synapse.org/rest/org/sagebionetworks/repo/model/table/TableUpdateRequest.html
+    uploadRequest = {u'tableId': tableId, u'linesToSkip': 0,
+                     u'concreteType': u'org.sagebionetworks.repo.model.table.UploadToTableRequest',
+                     u'uploadFileHandleId': file_handle_id,
+                     u'csvTableDescriptor': {u'escapeCharacter': u'\\', u'isFirstLineHeader': True, u'separator': u',',
+                                             u'lineEnd': '\n', u'quoteCharacter': u'"'}}
 
-# Credit: https://gist.github.com/kdaily/0db938589a08f0c7d8317d0cf2924167#file-tableUpdateTransaction-py
-file_handle_id = synapseclient.multipart_upload.multipart_upload(syn, updated_file_name)
+    request = {u'concreteType': u'org.sagebionetworks.repo.model.table.TableUpdateTransactionRequest',
+               u'entityId': tableId,
+               u'changes': [uploadRequest]}
 
-uploadRequest = {u'tableId': tableId, u'linesToSkip': 0, u'concreteType': u'org.sagebionetworks.repo.model.table.UploadToTableRequest', u'uploadFileHandleId': file_handle_id, 
-                 u'csvTableDescriptor': {u'escapeCharacter': u'\\', u'isFirstLineHeader': True, u'separator': u',', u'lineEnd': '\n', u'quoteCharacter': u'"'}}
-
-request = {u'concreteType': u'org.sagebionetworks.repo.model.table.TableUpdateTransactionRequest',
-           u'entityId': tableId,
-           u'changes': [uploadRequest]}
-
-endpoint = 'https://repo-prod.prod.sagebase.org/repo/v1'
-uri = '/entity/{tableId}/table/transaction/async/'.format(tableId=tableId)
-result = syn._waitForAsync(uri, request, endpoint)
-
-
-
+    endpoint = 'https://repo-prod.prod.sagebase.org/repo/v1'
+    uri = '/entity/{tableId}/table/transaction/async/'.format(tableId=tableId)
+    result = syn._waitForAsync(uri, request, endpoint)
 
 
-
+if __name__ == "__main__":
+    main()
