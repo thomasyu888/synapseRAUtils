@@ -4,7 +4,7 @@ import json
 import urllib
 
 src = "Data/"
-dst = "Results/combined.json"
+dst = "Result/combined.json"
 
 json_files = [j for j in os.listdir(src) if j.endswith('.json')]
 yml_files = [y for y in os.listdir(src) if y.endswith('.yml')]
