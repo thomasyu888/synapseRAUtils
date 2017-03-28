@@ -3,8 +3,8 @@ import yaml
 import json
 import urllib
 
-src = "combine-dictionaries/"
-dst = "combine-dictionaries/results/combined.json"
+src = "Data/"
+dst = "Results/combined.json"
 
 json_files = [j for j in os.listdir(src) if j.endswith('.json')]
 yml_files = [y for y in os.listdir(src) if y.endswith('.yml')]
