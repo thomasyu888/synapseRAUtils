@@ -13,16 +13,18 @@ json_data = {}
 yml_data = {}
 
 for file_name in json_files:
+	file_name = "Data/" + file_name
 	with open(file_name) as current_file:
 		j_dat = json.load(current_file)
 	json_data.update(j_dat)
-	print(len(json_data.keys()))
+	#print(len(json_data.keys()))
 
 for file_name in yml_files:
+	file_name = "Data/" + file_name
 	with open(file_name) as current_file:
 		y_dat = yaml.safe_load(current_file)
 	yml_data.update(y_dat)
-	print(len(yml_data.keys()))
+	#print(len(yml_data.keys()))
 
 json_data.update(yml_data)
 combined_data = json_data
