@@ -7,16 +7,23 @@
 server <- function(input, output) {
   # use the same name from output functions in ui
   # render function creates the type of output
-  dataOut <- reactive({
+  dataInput <- reactive({
     dat
   })
 
   output$mytable = renderDataTable({
-    dataOut()
+    dataInput()
   })
 
   output$txt <- renderText({
     icons <- paste(input$icons, collapse = ", ")
     # paste("choose your projects", icons)
   })
+  
+  output$downloadData <- downloadHandler(
+    filename = function() { paste(input$dataset, 'project_annotations.csv', sep = ',') },
+    content = function(file) {
+      write.csv(dataInput(), file)
+    }
+  )
 }

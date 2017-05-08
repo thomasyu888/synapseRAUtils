@@ -13,10 +13,12 @@
 body <- dashboardBody(
   fluidRow(
       box(checkboxGroupInput("icons", "Project Category:",
-                             choiceNames = list(icon("calendar"), icon("bed")),
-                             choiceValues = lapply(unique(dat$person), function(x) {x})),
+                             choiceNames = lapply(unique(dat$category), function(x) {x}),
+                             #list(icon("bug"), icon("calender"))
+                             choiceValues = lapply(unique(dat$category), function(x) {x})),
       textOutput("txt")),
-      tabPanel('category ', dataTableOutput('mytable'))
+      tabPanel('category ', dataTableOutput('mytable')),
+      downloadButton('downloadData', 'Download')
   )
 )
 

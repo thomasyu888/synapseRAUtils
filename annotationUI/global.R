@@ -38,14 +38,14 @@ options(stringsAsFactors = FALSE)
 # Download raw jason data from github repo 
 # It uses libcurl under the hood to perform the request and retrieve the response.
 json.file <- getURL("https://raw.githubusercontent.com/Sage-Bionetworks/synapseAnnotations/master/synapseAnnotations/data/common/minimal_Sage_standard.json")
-path <- '/Users/nasim/Documents/sage-internship/sage-projects/synapseAnnotations/synapseAnnotations/data/common/minimal_Sage_standard.json'
+# path <- '/Users/nasim/Documents/sage-internship/sage-projects/synapseAnnotations/synapseAnnotations/data/common/minimal_Sage_standard.json'
 # min.st.data <- jsonlite::fromJSON(path, flatten = T, simplifyMatrix = T, simplifyDataFrame = T)
 
 # json.file <- getURL("https://raw.githubusercontent.com/Sage-Bionetworks/synapseAnnotations/master/synapseAnnotations/data/common/minimal_Sage_analysis.json")
 # min.data <- jsonlite::fromJSON(json.file, flatten = T, simplifyMatrix = T, simplifyDataFrame = T)
 
 # Read json data into an R object matrix (nested dataframe)
-min.st.json <- jsonlite::fromJSON(json.file, flatten = T, simplifyDataFrame = T)
+min.st.json <- jsonlite::fromJSON(json.file, simplifyDataFrame = T)
 min.st.json$enumValues <- lapply(min.st.json$enumValues, function(x){
   if (dim(x)[2] == 0) {
     x <- data.frame(value = character(),
@@ -61,28 +61,32 @@ min.st.json$enumValues <- lapply(min.st.json$enumValues, function(x){
 # lapply(min.st.data$enumValues,function(x){names(x)})
 
 # Display the internal structure of the R object
-# str(min.st.data)
-# dim(min.st.data)
-# min.st.data[[1]] %>% head
-# min.st.data[[5]] %>% as.character %>% as.tbl_json %>% json_types
+# str(min.st.json)
+# dim(min.st.json)
+# min.st.json[[1]] %>% head
+# min.st.json[[5]] %>% as.character %>% as.tbl_json %>% json_types
 
-# value <- lapply(min.st.data$enumValues, `[[`, "value")
-# description <- lapply(min.st.data$enumValues, `[[`, "description")
-# source <- lapply(min.st.data$enumValues, `[[`, "source")
+# value <- lapply(min.st.json$enumValues, `[[`, "value")
+# description <- lapply(min.st.json$enumValues, `[[`, "description")
+# source <- lapply(min.st.json$enumValues, `[[`, "source")
 
 # min.st.items <- min.st.json %>%
-#   gather_array %>%                                              
-#   spread_values(name = jstring("name")) %>%  gather_array %>% 
-#   spread_values(description = jstring("description")) %>% gather_array %>%      
-#   spread_values(columnType = jstring("columnType")) %>%  gather_array %>%       
-#   spread_values(maximumSize = jnumber("maximumSize")) %>% gather_array %>%                                           
-#   enter_object("enumValues") %>% gather_array %>%               
-#   spread_values(   
+#   gather_array %>%
+#   spread_values(name = jstring("name")) %>%  gather_array %>%
+#   spread_values(description = jstring("description")) %>% gather_array %>%
+#   spread_values(columnType = jstring("columnType")) %>%  gather_array %>%
+#   spread_values(maximumSize = jnumber("maximumSize")) %>% gather_array %>%
+#   enter_object("enumValues") %>% gather_array %>%
+#   spread_values(
 #     enumValues.value = jstring("value"),
 #     enumValues.description = jstring("description"),
 #     enumValues.source = jstring("source")
 #   ) %>%
 # select(name, description, columnType, maximumSize, enumValues.value, enumValues.description, enumValues.source)
+standard <- read.csv(file = "standard.csv", header = T, sep = ",")
+analysis <- read.csv(file = "analysis.csv", header = T, sep = ",")
+
+dat <- rbind(standard, analysis)
 
 # --------------
 # error in file 
@@ -123,7 +127,7 @@ purch_json <- '
   ]
   }
   ]'
-purch_df <- jsonlite::fromJSON(purch_json, flatten = T, simplifyDataFrame = TRUE)
+purch_df <- jsonlite::fromJSON(purch_json, simplifyDataFrame = TRUE)
 purch_items <- purch_json %>%
   gather_array %>%                                     # stack the users 
   spread_values(person = jstring("name")) %>%          # extract the user name
@@ -136,13 +140,13 @@ purch_items <- purch_json %>%
   ) %>%
 select(person, purchase.date, item.name, item.price) # select only what is needed
 
-dat <- purch_items 
-all.vars <- names(dat)
-
-# variable types ----------------------
-var.class <- sapply(purch_items, class)
-
-# seperate data types -----------------
-categorical.vars <- names(var.class[var.class == "factor"])
-numeric.vars <- names(var.class[var.class %in% c("numeric", "integer")])
-
+# dat <- purch_items 
+# all.vars <- names(dat)
+# 
+# # variable types ----------------------
+# var.class <- sapply(purch_items, class)
+# 
+# # seperate data types -----------------
+# categorical.vars <- names(var.class[var.class == "factor"])
+# numeric.vars <- names(var.class[var.class %in% c("numeric", "integer")])
+# 
