@@ -12,6 +12,7 @@ usePackage("jsonlite")
 usePackage("tidyjson")
 usePackage("dplyr")
 usePackage("RCurl")
+#usePackage("DT")
 
 library(tidyjson)
 library(dplyr)
@@ -20,6 +21,7 @@ library(RCurl)
 library(shiny)
 library(ggplot2)
 library(shinydashboard)
+#library(DT)
 
 # library(plotly)
 # library(colorspace)
@@ -38,6 +40,8 @@ options(stringsAsFactors = FALSE)
 # Download raw jason data from github repo 
 # It uses libcurl under the hood to perform the request and retrieve the response.
 json.file <- getURL("https://raw.githubusercontent.com/Sage-Bionetworks/synapseAnnotations/master/synapseAnnotations/data/common/minimal_Sage_standard.json")
+json.file <- getURL("https://raw.githubusercontent.com/Sage-Bionetworks/synapseAnnotations/master/synapseAnnotations/data/common/minimal_Sage_analysis.json")
+
 # path <- '/Users/nasim/Documents/sage-internship/sage-projects/synapseAnnotations/synapseAnnotations/data/common/minimal_Sage_standard.json'
 # min.st.data <- jsonlite::fromJSON(path, flatten = T, simplifyMatrix = T, simplifyDataFrame = T)
 
@@ -83,10 +87,6 @@ min.st.json$enumValues <- lapply(min.st.json$enumValues, function(x){
 #     enumValues.source = jstring("source")
 #   ) %>%
 # select(name, description, columnType, maximumSize, enumValues.value, enumValues.description, enumValues.source)
-standard <- read.csv(file = "standard.csv", header = T, sep = ",")
-analysis <- read.csv(file = "analysis.csv", header = T, sep = ",")
-
-dat <- rbind(standard, analysis)
 
 # --------------
 # error in file 
@@ -94,10 +94,38 @@ dat <- rbind(standard, analysis)
 #  argument "json.column" is missing, with no default
 # --------------
 
+# --------------
+# read in premade data for demo
+# --------------
+# standard <- read.csv(file = "standard.csv", header = T, sep = ",")
+# analysis <- read.csv(file = "analysis.csv", header = T, sep = ",")
+# testcat <- read.csv(file = "testcat.csv", header = T, sep = ",")
+
+# dat <- rbind(rbind(standard, analysis), testcat)
+# dat <- cbind(standard$name, standard$description, standard$columnType, standard$enumValues__value, standard$enumValues__source, standard$category)
+# dat$maximumSize <- as.numeric(dat$maximumSize)
+# write.csv(dat, file = "both.csv", row.names = F)
+dat <- read.csv("both.csv") 
+dat <- as.data.frame(dat, stringsAsFactor = F)
+categories <- lapply(unique(dat$category), function(x) {x})
+# dat <- purch_items
+all.vars <- names(dat)
+
+# variable types ----------------------
+var.class <- sapply(dat, class)
+
+# seperate data types -----------------
+categorical.vars <- names(var.class[var.class == "factor"])
+numeric.vars <- names(var.class[var.class %in% c("numeric", "integer")])
+
+# --------------
+# example code 
+# --------------
+
 purch_json <- '
 [
   {
-  "name": "bob", 
+  "name": "bob",
   "purchases": [
   {
   "date": "2014/09/13",
@@ -109,7 +137,7 @@ purch_json <- '
   ]
   },
   {
-  "name": "susan", 
+  "name": "susan",
   "purchases": [
   {
   "date": "2014/10/01",
@@ -129,24 +157,15 @@ purch_json <- '
   ]'
 purch_df <- jsonlite::fromJSON(purch_json, simplifyDataFrame = TRUE)
 purch_items <- purch_json %>%
-  gather_array %>%                                     # stack the users 
-  spread_values(person = jstring("name")) %>%          # extract the user name
-  enter_object("purchases") %>% gather_array %>%       # stack the purchases
-  spread_values(purchase.date = jstring("date")) %>%   # extract the purchase date
-  enter_object("items") %>% gather_array %>%           # stack the items
-  spread_values(                                       # extract item name and price
-    item.name = jstring("name"),
-    item.price = jnumber("price")
-  ) %>%
-select(person, purchase.date, item.name, item.price) # select only what is needed
+   gather_array %>%                                     # stack the users
+   spread_values(person = jstring("name")) %>%          # extract the user name
+   enter_object("purchases") %>% gather_array %>%       # stack the purchases
+   spread_values(purchase.date = jstring("date")) %>%   # extract the purchase date
+   enter_object("items") %>% gather_array %>%           # stack the items
+   spread_values(                                       # extract item name and price
+     item.name = jstring("name"),
+     item.price = jnumber("price")
+   ) %>%
+ select(person, purchase.date, item.name, item.price) # select only what is needed
 
-# dat <- purch_items 
-# all.vars <- names(dat)
-# 
-# # variable types ----------------------
-# var.class <- sapply(purch_items, class)
-# 
-# # seperate data types -----------------
-# categorical.vars <- names(var.class[var.class == "factor"])
-# numeric.vars <- names(var.class[var.class %in% c("numeric", "integer")])
-# 
+# dat <- purch_items

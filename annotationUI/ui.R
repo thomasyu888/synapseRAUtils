@@ -12,12 +12,13 @@
 # https://rstudio.github.io/shinydashboard/structure.html
 body <- dashboardBody(
   fluidRow(
-      box(checkboxGroupInput("icons", "Project Category:",
-                             choiceNames = lapply(unique(dat$category), function(x) {x}),
-                             #list(icon("bug"), icon("calender"))
-                             choiceValues = lapply(unique(dat$category), function(x) {x})),
+      box(   checkboxGroupInput("cat", "Project Category:",
+                                choiceNames = categories,
+                                choiceValues = categories, 
+                                selected = categories),
+      verbatimTextOutput("category"),
       textOutput("txt")),
-      tabPanel('category ', dataTableOutput('mytable')),
+      shiny::dataTableOutput('annotationTable'),
       downloadButton('downloadData', 'Download')
   )
 )
@@ -27,36 +28,24 @@ body <- dashboardBody(
 ui <- dashboardPage(
   dashboardHeader(title = "Annotation Utils UI"),
   dashboardSidebar(disable = TRUE),
-  # dashboardSidebar(
-  #   checkboxGroupInput("icons", "Choose Project Category:",
-  #                      choiceNames = list(icon("calendar"), icon("bed"),
-  #                                         icon("cog"), icon("bug")),
-  #                      choiceValues = list("calendar", "bed", "cog", "bug")
-  #   ), 
-  #   textOutput("txt")
-  # ),
   body
 )
 
+# ---------------------------------------------------------------------------
 # ui <- fluidPage(
 #   navbarPage("Annotations Utils UI"),
 #   br(),
 #   #titlePanel("title panel"),
 #   sidebarLayout(position = "left",
 #   sidebarPanel(
-#     checkboxGroupInput("icons", "Choose icons:",
-#                         choiceNames =
-#                           list(icon("calendar"), icon("bed"),
-#                                icon("cog"), icon("bug")),
-#                         choiceValues =
-#                          list("calendar", "bed", "cog", "bug")
-#     ),
-#     textOutput("txt")
+#     checkboxGroupInput("cat", "Project Category:",
+#                         choiceNames = categories,
+#                         choiceValues = categories, 
+#                         selected = categories)
 #   ),
-#   mainPanel(
-#     tabPanel(
-#       'category ', dataTableOutput('mytable')
-#     )
-#   )
-#   )
+#   downloadButton('downloadData', 'Download')
+#   #textOutput("txt")
+#   ),
+#   mainPanel(shiny::dataTableOutput('annotationTable')
+#             )
 # )
