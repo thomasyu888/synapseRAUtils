@@ -47,7 +47,14 @@ server <- function(input, output) {
   output$downloadData <- downloadHandler(
     filename = function() {'project_annotations.csv'},
     content = function(file) {
-      write.csv(dataOut(), file)
+      write.csv(dataOut(), file, row.names = F)
+    }
+  )
+  
+  output$downloadSchema <- downloadHandler(
+    filename = function() {'project_annotations.csv'},
+    content = function(file) {
+      write.csv(dataOut(), file, row.names = F)
     }
   )
 }

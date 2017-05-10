@@ -19,7 +19,10 @@ body <- dashboardBody(
       verbatimTextOutput("category"),
       textOutput("txt")),
       shiny::dataTableOutput('annotationTable'),
-      downloadButton('downloadData', 'Download')
+      downloadButton('downloadData', 'Download'),
+      downloadButton('downloadSchema', 'Download Manifest'),
+      actionButton("uploadData", "Upload Your Projects' Annotation"),
+      actionButton("appendData", "Request to append Your Projects' Annotation")
   )
 )
 
