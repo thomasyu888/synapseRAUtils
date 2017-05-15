@@ -1,8 +1,10 @@
 import json
+import urllib
 import pandas
 import argparse
 import flatten_json
 import synapseclient 
+from flatten_json import flatten
 from pandas.io.json import json_normalize
 
 
@@ -16,5 +18,17 @@ neuro_path = 'https://raw.githubusercontent.com/Sage-Bionetworks/synapseAnnotati
 nf_path = 'https://raw.githubusercontent.com/Sage-Bionetworks/synapseAnnotations/master/synapseAnnotations/data/nf_annotations.json'
 ngs_path = 'https://raw.githubusercontent.com/Sage-Bionetworks/synapseAnnotations/master/synapseAnnotations/data/ngs_annotations.json'
 onc_path = 'https://raw.githubusercontent.com/Sage-Bionetworks/synapseAnnotations/master/synapseAnnotations/data/onc_annotations.json'
+
+
+raw_dat = urllib.urlopen(standard_path).read()
+json_record  = json.loads(raw_dat)
+record_flatten = (flatten(d) for d in json_record)
+df = pandas.DataFrame(record_flatten)
+
+
+
+
+
+
 
 
