@@ -129,7 +129,7 @@ dat <- read.csv(file = "annotations/all.csv", header = T, sep = ",")
 # write.csv(dat, file = "both.csv", row.names = F)
 # dat <- read.csv("both.csv") 
 # dat <- as.data.frame(dat, stringsAsFactor = F)
-# categories <- lapply(unique(dat$project), function(x) {x})
+categories <- lapply(unique(dat$project), function(x) {x})
 # dat <- purch_items
 all.vars <- names(dat)
 

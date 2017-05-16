@@ -1,0 +1,15 @@
+---
+title: "How to Construct a Synapse Annotation Manifest"
+author: "Nasim Sanati"
+date: "5/16/2017"
+output: html_document
+---
+
+## Select Synapse Projects 
+
+
+```{r}
+```
+
+## Add Your Projects ANnotations 
+

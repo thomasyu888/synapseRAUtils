@@ -31,10 +31,10 @@ server <- function(input, output) {
   
   },options = list(lengthMenu = c(10, 50, 100), pageLength = 10))
 
-  output$txt <- renderText({
+  #output$txt <- renderText({
     #icons <- paste(input$cat, collapse = ", ")
     #paste("choose your projects", icons)
-  })
+  #})
 
   output$category <- renderText({
     if (is.null(input$cat)) {

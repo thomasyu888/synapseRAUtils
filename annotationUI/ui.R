@@ -32,7 +32,6 @@ sidebar <- dashboardSidebar(
     #menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
     #menuItem("Widgets", icon = icon("th"), tabName = "widgets",
              #badgeLabel = "new", badgeColor = "green")
-    categories <- lapply(unique(dat$project), function(x) {x}),
     checkboxGroupInput("cat", "Project Category",
                        choiceNames = categories,
                        choiceValues = categories, 
@@ -59,11 +58,20 @@ sidebar <- dashboardSidebar(
 )
 
 # We'll save it in a variable `ui` so that we can preview it in the console
-ui <- dashboardPage(
+y <- dashboardPage(
+  dashboardHeader(title = "How-TO's"),
+  dashboardSidebar(disable = TRUE),
+  dashboardBody()
+)
+
+x <- dashboardPage(
   dashboardHeader(title = "Annotation Utils UI"),
-  #dashboardSidebar(disable = TRUE),
   sidebar,
   body
+)
+
+ui <- shinyUI(
+  x
 )
 
 # ---------------------------------------------------------------------------
