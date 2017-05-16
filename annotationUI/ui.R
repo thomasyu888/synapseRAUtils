@@ -12,25 +12,39 @@
 # https://rstudio.github.io/shinydashboard/structure.html
 body <- dashboardBody(
   fluidRow(
-      box(   checkboxGroupInput("cat", "Project Category:",
-                                choiceNames = categories,
-                                choiceValues = categories, 
-                                selected = categories),
-      verbatimTextOutput("category"),
-      textOutput("txt")),
-      shiny::dataTableOutput('annotationTable'),
-      downloadButton('downloadData', 'Download'),
-      downloadButton('downloadSchema', 'Download Manifest'),
-      actionButton("uploadData", "Upload Your Projects' Annotation"),
-      actionButton("appendData", "Request to append Your Projects' Annotation")
+     # box(  #checkboxGroupInput("cat", "Project Category:",
+            #                    choiceNames = categories,
+            #                    choiceValues = categories, 
+            #                    selected = categories)
+      #verbatimTextOutput("category"),
+      # textOutput("txt")
+      # ),
+      shiny::dataTableOutput('annotationTable'), 
+      downloadButton('downloadSchema', 'Download Manifest')
+      # downloadButton('downloadData', 'Download'),
+      #actionButton("uploadData", "Upload Your Projects' Annotation"),
+      #actionButton("appendData", "Request to append Your Projects' Annotation"),
   )
 )
 
+sidebar <- dashboardSidebar(
+  sidebarMenu(
+    #menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
+    #menuItem("Widgets", icon = icon("th"), tabName = "widgets",
+             #badgeLabel = "new", badgeColor = "green")
+    
+    checkboxGroupInput("cat", "Project Category:",
+                       choiceNames = categories,
+                       choiceValues = categories, 
+                       selected = categories)
+  )
+)
 
 # We'll save it in a variable `ui` so that we can preview it in the console
 ui <- dashboardPage(
   dashboardHeader(title = "Annotation Utils UI"),
-  dashboardSidebar(disable = TRUE),
+  #dashboardSidebar(disable = TRUE),
+  sidebar,
   body
 )
 
