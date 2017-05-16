@@ -31,11 +31,6 @@ server <- function(input, output) {
   
   },options = list(lengthMenu = c(10, 50, 100), pageLength = 10))
 
-  #output$txt <- renderText({
-    #icons <- paste(input$cat, collapse = ", ")
-    #paste("choose your projects", icons)
-  #})
-
   output$category <- renderText({
     if (is.null(input$cat)) {
       return()
@@ -44,13 +39,6 @@ server <- function(input, output) {
       input$cat
     }
   })
-  
-  # output$appendProject <- downloadHandler(
-  #   filename = function() {'project_annotations.csv'},
-  #   content = function(file) {
-  #     write.csv(dataOut(), file, row.names = F)
-  #   }
-  # )
   
   output$downloadSchema <- downloadHandler(
     filename <- function() {'annotations_manifest.xlsx'},
@@ -62,12 +50,8 @@ server <- function(input, output) {
       user.cols <- unique(user.dat[["name"]])
       
       columns <- append(c("synapseId", "fileName"), user.cols)
-      print(columns)
-      print(user.dat)
       schema <- data.frame(matrix(ncol = length(columns), nrow = 0))
-      print(schema)
       colnames(schema) <- columns
-      print(schema)
       key.description <- user.dat[,c("name", "description", "columnType", "project")]
       colnames(key.description) <- c("key", "description", "columnType", "category")
       value.description <- user.dat[,c("name", "enumValues_value", "enumValues_description", "enumValues_source", "project")]
@@ -75,7 +59,7 @@ server <- function(input, output) {
       
       sheets <- list(manifest = schema , key.description = key.description, keyvalue.description = value.description)
       openxlsx::write.xlsx(sheets, file)
-      # write.csv(dataOut(), file, row.names = F)
+    
       # write.csv(schema, file, row.names = F)
       # write.csv(key.description, "key_description.csv", row.names = F)
       # write.csv(keyvalue.description, "value_description.csv", row.names = F)

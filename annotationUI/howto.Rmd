@@ -5,11 +5,17 @@ date: "5/16/2017"
 output: html_document
 ---
 
-## Select Synapse Projects 
-
+##  Use-Case 1
+![Select projects annotations](img/select.png)
 
 ```{r}
 ```
 
-## Add Your Projects ANnotations 
+##  Use-Case 2 
+![](img/add.png)
+
+
+## Use-Case 1 & 2 
+![](img/download.png)
+
 
