@@ -22,8 +22,8 @@ body <- dashboardBody(
       shiny::dataTableOutput('annotationTable'), 
       downloadButton('downloadSchema', 'Download Manifest')
       # downloadButton('downloadData', 'Download'),
-      #actionButton("uploadData", "Upload Your Projects' Annotation"),
-      #actionButton("appendData", "Request to append Your Projects' Annotation"),
+      # actionButton("appendProject", "Upload Your Projects' Annotation")
+      # actionButton("", "Request to append Your Projects' Annotation"),
   )
 )
 
@@ -32,11 +32,29 @@ sidebar <- dashboardSidebar(
     #menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
     #menuItem("Widgets", icon = icon("th"), tabName = "widgets",
              #badgeLabel = "new", badgeColor = "green")
-    
-    checkboxGroupInput("cat", "Project Category:",
+    categories <- lapply(unique(dat$project), function(x) {x}),
+    checkboxGroupInput("cat", "Project Category",
                        choiceNames = categories,
                        choiceValues = categories, 
                        selected = categories)
+  ),
+  sidebarMenu(
+    tags$hr(),
+    fileInput('userAnnot', 'Your Annotation CSV File',
+              accept = c('text/csv', 
+                       'text/comma-separated-values,text/plain', 
+                       '.csv')),
+    #tags$hr(),
+    checkboxInput('header', 'Header', TRUE),
+    radioButtons('sep', 'Separator',
+                  c(Comma = ',',
+                   Semicolon = ';',
+                   Tab = '\t'), ','),
+    radioButtons('quote', 'Quote',
+                  c(None = '',
+                    'Double Quote' = '"',
+                    'Single Quote' = "'"),
+                  '"')
   )
 )
 

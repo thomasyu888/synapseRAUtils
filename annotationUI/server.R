@@ -8,25 +8,27 @@ server <- function(input, output) {
   # use the same name from output functions in ui
   # render function creates the type of output
   dataOut <- reactive({
-    # if (is.null(dat))
-    #   return(NULL)
-    # elsew
-    #   return(dat)
     if (input$cat > 0) {
       dat <- dat[which(dat$project %in% input$cat),]
     }
     else{
       dat
     }
+    
+    inFile <- input$userAnnot
+    
+    if (is.null(inFile))
+      return(dat)
+    
+    user.dat <- read.csv(inFile$datapath, header = input$header, sep = input$sep, quote = input$quote)
+    dat <- rbind(dat, user.dat)
+    dat 
   })
 
   output$annotationTable <- shiny::renderDataTable({
-
+    
     dataOut() 
-    # if (input$cat == 0) {
-    #   dat 
-    # }
-    # dataOut()
+  
   },options = list(lengthMenu = c(10, 50, 100), pageLength = 10))
 
   output$txt <- renderText({
@@ -42,9 +44,8 @@ server <- function(input, output) {
       input$cat
     }
   })
-
- 
-  # output$downloadData <- downloadHandler(
+  
+  # output$appendProject <- downloadHandler(
   #   filename = function() {'project_annotations.csv'},
   #   content = function(file) {
   #     write.csv(dataOut(), file, row.names = F)
@@ -74,10 +75,10 @@ server <- function(input, output) {
       
       sheets <- list(manifest = schema , key.description = key.description, keyvalue.description = value.description)
       openxlsx::write.xlsx(sheets, file)
-      
       # write.csv(dataOut(), file, row.names = F)
       # write.csv(schema, file, row.names = F)
+      # write.csv(key.description, "key_description.csv", row.names = F)
+      # write.csv(keyvalue.description, "value_description.csv", row.names = F)
     }
-    
   )
 }
