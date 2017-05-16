@@ -9,7 +9,7 @@ server <- function(input, output) {
   # render function creates the type of output
   dataOut <- reactive({
     if (input$cat > 0) {
-      dat <- dat[which(dat$project %in% input$cat),]
+      dat <- dat[which(dat$category %in% input$cat),]
     }
     else{
       dat
@@ -20,7 +20,11 @@ server <- function(input, output) {
     if (is.null(inFile))
       return(dat)
     
-    user.dat <- read.csv(inFile$datapath, header = input$header, sep = input$sep, quote = input$quote)
+    # use fread to catch user defined formats and execute correct errors as needed
+    user.dat <-  fread(inFile$datapath)
+    # this line needs to be removed
+    colnames(user.dat) <- c("key", "description", "columnType", "maximumSize", "value", "values_description", "values_source", "category")
+    # user.dat <- read.csv(inFile$datapath, header = input$header, sep = input$sep, quote = input$quote)
     dat <- rbind(dat, user.dat)
     dat 
   })
@@ -47,15 +51,13 @@ server <- function(input, output) {
       user.dat <- dataOut()
       
       first.cols <- c("synapseId", "fileName")
-      user.cols <- unique(user.dat[["name"]])
+      user.cols <- unique(user.dat[["key"]])
       
       columns <- append(c("synapseId", "fileName"), user.cols)
       schema <- data.frame(matrix(ncol = length(columns), nrow = 0))
       colnames(schema) <- columns
-      key.description <- user.dat[,c("name", "description", "columnType", "project")]
-      colnames(key.description) <- c("key", "description", "columnType", "category")
-      value.description <- user.dat[,c("name", "enumValues_value", "enumValues_description", "enumValues_source", "project")]
-      colnames(value.description) <- c("key", "value", "description", "source", "category")
+      key.description <- user.dat[,c("key", "description", "columnType", "category")]
+      value.description <- user.dat[,c("key", "value", "values_description", "values_source", "category")]
       
       sheets <- list(manifest = schema , key.description = key.description, keyvalue.description = value.description)
       openxlsx::write.xlsx(sheets, file)

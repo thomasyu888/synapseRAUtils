@@ -13,6 +13,7 @@ usePackage("openxlsx")
 usePackage("shiny")
 usePackage("ggplot2")
 usePackage("shinydashboard")
+usePackage("data.table")
 
 
 library(dplyr)
@@ -20,19 +21,22 @@ library(shiny)
 library(ggplot2)
 library(shinydashboard)
 library(openxlsx)
+library(data.table)
 # source('http://depot.sagebase.org/CRAN.R')
 # pkgInstall("synapseClient")
-library(synapseClient)
+# library(synapseClient)
+
 # ----------------------------------------------------------------------
 # login to synapse
 # ----------------------------------------------------------------------
-synapseLogin()
+# synapseLogin()
 
 # ----------------------------------------------------------------------
 options(stringsAsFactors = FALSE)
 dat <- read.csv(file = "annotations/all.csv", header = T, sep = ",")
 categories <- lapply(unique(dat$project), function(x) {x})
 all.vars <- names(dat)
+names(dat) <- c("key", "description", "columnType", "maximumSize", "value", "values_description", "values_source", "category")
 
 # variable types ----------------------
 var.class <- sapply(dat, class)

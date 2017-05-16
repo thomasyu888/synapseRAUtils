@@ -12,16 +12,8 @@
 # https://rstudio.github.io/shinydashboard/structure.html
 body <- dashboardBody(
   fluidRow(
-     # box(  #checkboxGroupInput("cat", "Project Category:",
-            #                    choiceNames = categories,
-            #                    choiceValues = categories, 
-            #                    selected = categories)
-      #verbatimTextOutput("category"),
-      # textOutput("txt")
-      # ),
       shiny::dataTableOutput('annotationTable'), 
       downloadButton('downloadSchema', 'Download Manifest')
-      # downloadButton('downloadData', 'Download'),
       # actionButton("appendProject", "Upload Your Projects' Annotation")
       # actionButton("", "Request to append Your Projects' Annotation"),
   )
@@ -29,9 +21,6 @@ body <- dashboardBody(
 
 sidebar <- dashboardSidebar(
   sidebarMenu(
-    #menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
-    #menuItem("Widgets", icon = icon("th"), tabName = "widgets",
-             #badgeLabel = "new", badgeColor = "green")
     checkboxGroupInput("cat", "Project Category",
                        choiceNames = categories,
                        choiceValues = categories, 
@@ -42,22 +31,10 @@ sidebar <- dashboardSidebar(
     fileInput('userAnnot', 'Your Annotation CSV File',
               accept = c('text/csv', 
                        'text/comma-separated-values,text/plain', 
-                       '.csv')),
-    #tags$hr(),
-    checkboxInput('header', 'Header', TRUE),
-    radioButtons('sep', 'Separator',
-                  c(Comma = ',',
-                   Semicolon = ';',
-                   Tab = '\t'), ','),
-    radioButtons('quote', 'Quote',
-                  c(None = '',
-                    'Double Quote' = '"',
-                    'Single Quote' = "'"),
-                  '"')
+                       '.csv'))
   )
 )
 
-# We'll save it in a variable `ui` so that we can preview it in the console
 y <- dashboardPage(
   dashboardHeader(title = "How-TO's"),
   dashboardSidebar(disable = TRUE),
