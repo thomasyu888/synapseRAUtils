@@ -26,47 +26,75 @@ annotations = []
 
 def json2flatten(path, project):	
 	# fetch and read raw json objects from its github url and decode the json object to its raw format  
-	raw_dat = urllib.urlopen(standard_path).read()
-	json_record  = json.loads(raw_dat)
-	# Apply flatten (https://github.com/amirziai/flatten) to each element of json record and read it into a pandas dataframe
-	record_flatten = (flatten(d) for d in json_record)
-	df = pandas.DataFrame(record_flatten)
-	# Replace NaN objects with empty strings 
-	df = df.replace(numpy.nan, '', regex=True)
-	df.loc[:,'category'] = project
-	return(df)
-json2flatten(nf_path, 'nf')
+	# raw_dat = urllib.urlopen(standard_path).read()
+	# json_record  = json.loads(raw_dat)
 
-for project, path in [(n, url) for n in names for url in paths]:
-	data = json2flatten(path, project)
-	annotations.append(data)
+	json_record = pandas.read_json(path)
+
+	# json_record = pandas.read_json(standard_path)
+	print(len(json_record.index))
+	print(json_record.index)
+	for i, jsn in enumerate(json_record.index['enumValues']):
+		print(i)
+		if not json_record['enumValues'][i]:
+			# 'values_description', 'source', 'value'
+			print(i)
+			rows = json_record.ix[i:i, json_record.columns != 'enumValues']
+			rows["values_description"] = ""
+			rows["source"] = ""
+			rows["value"] = ""
+			flatten_df = rows
+		else:
+			print(i)
+			df = pandas.io.json.json_normalize(json_record['enumValues'][i])
+			df = df.rename(columns = {'description':'values_description'})
+			#print(df)
+			rows = json_record.ix[i:i, json_record.columns != 'enumValues']
+			repeats = pandas.concat([rows] * len(df.index))
+			repeats.set_index(df.index, inplace = True)
+			flatten_df = pandas.concat([repeats, df], axis = 1)
+
+
+	# Apply flatten (https://github.com/amirziai/flatten) to each element of json record and read it into a pandas dataframe
+	#record_flatten = (flatten(d) for d in json_record)
+	#df = pandas.DataFrame(record_flatten)
+	# Replace NaN objects with empty strings 
+	#df = df.replace(numpy.nan, '', regex=True)
+	#df.loc[:,'category'] = project
+	return(flatten_df)
+
+# json2flatten(nf_path, 'nf')
+
+#for project, path in [(n, url) for n in names for url in paths]:
+#	data = json2flatten(path, project)
+#	annotations.append(data)
 	# print(data)
 
-annotations_df = pandas.concat(annotations)
-print(annotations_df, annotations_df.shape)
+#annotations_df = pandas.concat(annotations)
+#print(annotations_df, annotations_df.shape)
 
 
 # https://json-csv.com/
-src = '/Users/nasim/Documents/sage-internship/synapseRAUtils/annotationUI/annotations/'
-src_files = os.listdir(src)
+# src = '/Users/nasim/Documents/sage-internship/synapseRAUtils/annotationUI/annotations/'
+# src_files = os.listdir(src)
 
-l = []
-for file_name in src_files:
-	full_file_name = os.path.join(src, file_name)
-	d = pandas.read_csv(full_file_name)
-	d = d.replace(numpy.nan, '', regex=True)
-	l.append(d)
+# l = []
+# for file_name in src_files:
+# 	full_file_name = os.path.join(src, file_name)
+# 	d = pandas.read_csv(full_file_name)
+# 	d = d.replace(numpy.nan, '', regex=True)
+# 	l.append(d)
 
-annotations_df = pandas.concat(l)
-annotations_df.to_csv("all.csv", sep=",", index=False)
+# annotations_df = pandas.concat(l)
+# annotations_df.to_csv("all.csv", sep=",", index=False)
 
-project = syn.get('syn7444884')
+# project = syn.get('syn7444884')
 
-cols = synapseclient.as_table_columns(annotations_df)
+# cols = synapseclient.as_table_columns(annotations_df)
 
-schema = synapseclient.Schema(name='Annotations and Project Category', columns=cols, parent=project)
-table = synapseclient.Table(schema, annotations_df)
-table = syn.store(table)
+# schema = synapseclient.Schema(name='Annotations and Project Category', columns=cols, parent=project)
+# table = synapseclient.Table(schema, annotations_df)
+# table = syn.store(table)
 
 # syn9817606
 
