@@ -8,33 +8,20 @@ usePackage <- function(p)
     install.packages(p, dep = TRUE)
   require(p, character.only = TRUE)
 }
-usePackage("jsonlite")
-usePackage("tidyjson")
 usePackage("dplyr")
-usePackage("RCurl")
 usePackage("openxlsx")
-#usePackage("DT")
+usePackage("shiny")
+usePackage("ggplot2")
+usePackage("shinydashboard")
 
-library(tidyjson)
+
 library(dplyr)
-library(jsonlite)
-library(RCurl)
 library(shiny)
 library(ggplot2)
 library(shinydashboard)
 library(openxlsx)
-#library(DT)
-
-# library(plotly)
-# library(colorspace)
-# library(d3heatmap)
-# library(httr)
-# install.packages("rjson")
-# library(rjson)
-
 # source('http://depot.sagebase.org/CRAN.R')
 # pkgInstall("synapseClient")
-
 library(synapseClient)
 # ----------------------------------------------------------------------
 # login to synapse
