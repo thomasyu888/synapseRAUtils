@@ -1,3 +1,4 @@
+import os
 import json
 import urllib
 import pandas
@@ -44,6 +45,30 @@ for project, path in [(n, url) for n in names for url in paths]:
 annotations_df = pandas.concat(annotations)
 print(annotations_df, annotations_df.shape)
 
+
+# https://json-csv.com/
+src = '/Users/nasim/Documents/sage-internship/synapseRAUtils/annotationUI/annotations/'
+src_files = os.listdir(src)
+
+l = []
+for file_name in src_files:
+	full_file_name = os.path.join(src, file_name)
+	d = pandas.read_csv(full_file_name)
+	d = d.replace(numpy.nan, '', regex=True)
+	l.append(d)
+
+annotations_df = pandas.concat(l)
+annotations_df.to_csv("all.csv", sep=",", index=False)
+
+project = syn.get('syn7444884')
+
+cols = synapseclient.as_table_columns(annotations_df)
+
+schema = synapseclient.Schema(name='Annotations and Project Category', columns=cols, parent=project)
+table = synapseclient.Table(schema, annotations_df)
+table = syn.store(table)
+
+# syn9817606
 
 
 

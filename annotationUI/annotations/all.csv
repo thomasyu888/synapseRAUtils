@@ -1,0 +1,516 @@
+name,description,columnType,maximumSize,enumValues_value,enumValues_description,enumValues_source,project
+assemblyMethod,,STRING,250,velvet,,,analysis
+regressionMethod,,STRING,250,fixedEffect,,,analysis
+regressionMethod,,STRING,250,randomEffect,,,analysis
+regressionMethod,,STRING,250,mixedEffect,,,analysis
+batchEffectCorrectionMethod,,STRING,250,COMBAT,,,analysis
+batchEffectCorrectionMethod,,STRING,250,SVA,,,analysis
+batchEffectCorrectionMethod,,STRING,250,PCA,,,analysis
+clusteringMethod,,STRING,250,hierarchicalClustering,,,analysis
+clusteringMethod,,STRING,250,kMeans,,,analysis
+clusteringMethod,,STRING,250,WGCNA,,,analysis
+clusteringMethod,,STRING,250,principalComponentAnalysis,,,analysis
+somaticMutationCallingMethod,,STRING,250,varDict,,,analysis
+somaticMutationCallingMethod,,STRING,250,varDict2,,,analysis
+somaticMutationCallingMethod,,STRING,250,mutect,,,analysis
+somaticMutationCallingMethod,,STRING,250,varScan,,,analysis
+multipleTestingAdjustmentMethod,,STRING,250,BenjaminiHochberg,,,analysis
+multipleTestingAdjustmentMethod,,STRING,250,Bonferroni,,,analysis
+multipleTestingAdjustmentMethod,,STRING,250,BenjaminiYekutieli,,,analysis
+peakCallingMethod,,STRING,250,MACS,,,analysis
+peakCallingMethod,,STRING,250,MACS2,,,analysis
+peakCallingMethod,,STRING,250,GEM,,,analysis
+transcriptQuantificationMethod,,STRING,250,kallisto,,,analysis
+transcriptQuantificationMethod,,STRING,250,RSEM,,,analysis
+transcriptQuantificationMethod,,STRING,250,featureCounts,,,analysis
+transcriptQuantificationMethod,,STRING,250,DESeq2,,,analysis
+statisticalNetworkReconstructionMethod,,STRING,250,WGCNA,,,analysis
+statisticalNetworkReconstructionMethod,,STRING,250,sparrow,,,analysis
+statisticalNetworkReconstructionMethod,,STRING,250,lasso,,,analysis
+statisticalNetworkReconstructionMethod,,STRING,250,ridge,,,analysis
+statisticalNetworkReconstructionMethod,,STRING,250,genie3,,,analysis
+statisticalNetworkReconstructionMethod,,STRING,250,tigress,,,analysis
+statisticalNetworkReconstructionMethod,,STRING,250,aracne,,,analysis
+statisticalNetworkReconstructionMethod,,STRING,250,mrnet,,,analysis
+statisticalNetworkReconstructionMethod,,STRING,250,c3net,,,analysis
+statisticalNetworkReconstructionMethod,,STRING,250,MEGENA,,,analysis
+statisticalNetworkReconstructionMethod,,STRING,250,WINA,,,analysis
+differentialExpressionMethod,,STRING,250,limma,,,analysis
+differentialExpressionMethod,,STRING,250,sleuth,,,analysis
+differentialExpressionMethod,,STRING,250,cuffDiff,,,analysis
+dnaAlignmentMethod,,STRING,250,BWA,,,analysis
+dnaAlignmentMethod,,STRING,250,bowtie,,,analysis
+dnaAlignmentMethod,,STRING,250,bowtie2,,,analysis
+validationMethod,,STRING,250,sequenceValidation,,,analysis
+validationMethod,,STRING,250,targetValidation,,,analysis
+validationMethod,,STRING,250,CRISPR-CAS9,,,analysis
+validationMethod,,STRING,250,RNAi,,,analysis
+validationMethod,,STRING,250,shRNA,,,analysis
+enrichmentMethod,,STRING,250,fishersExactTest,,,analysis
+analysisType,,STRING,250,statisticalNetworkReconstruction,,,analysis
+analysisType,,STRING,250,differentialExpression,,,analysis
+analysisType,,STRING,250,expressionQuantitativeTraitLociDetection,,,analysis
+analysisType,,STRING,250,outlierDetection,,,analysis
+analysisType,,STRING,250,covariateAssociation,,,analysis
+analysisType,,STRING,250,hiddenConfounderDetection,,,analysis
+analysisType,,STRING,250,differentialNetwork,,,analysis
+analysisType,,STRING,250,methylationQuantitativeTraitLociDetection,,,analysis
+analysisType,,STRING,250,networkDriverDetection,,,analysis
+analysisType,,STRING,250,principalComponents,,,analysis
+analysisType,,STRING,250,genomeWideAssociation,,,analysis
+analysisType,,STRING,250,clustering,,,analysis
+analysisType,,STRING,250,supervisedLearning,,,analysis
+analysisType,,STRING,250,batchEffectCorrection,,,analysis
+analysisType,,STRING,250,anova,,,analysis
+analysisType,,STRING,250,variancePartition,,,analysis
+analysisType,,STRING,250,moduleIdentification,,,analysis
+analysisType,,STRING,250,visualization,,,analysis
+analysisType,,STRING,250,transcriptQuantification,,,analysis
+analysisType,,STRING,250,somaticMutationCalling,,,analysis
+analysisType,,STRING,250,peakCalling,,,analysis
+visualisationMethod,,STRING,250,scatterPlot,,,analysis
+visualisationMethod,,STRING,250,heatMap,,,analysis
+visualisationMethod,,STRING,250,barChart,,,analysis
+rnaAlignmentMethod,,STRING,250,SNAPR,,,analysis
+rnaAlignmentMethod,,STRING,250,STAR,,,analysis
+rnaAlignmentMethod,,STRING,250,GSNAP,,,analysis
+rnaAlignmentMethod,,STRING,250,topHat,,,analysis
+rnaAlignmentMethod,,STRING,250,mosaic,,,analysis
+rnaAlignmentMethod,,STRING,250,novoAlign,,,analysis
+rnaAlignmentMethod,,STRING,250,olego,,,analysis
+supervisedLearningMethod,,STRING,250,penalizedLogisticRegression,,,analysis
+supervisedLearningMethod,,STRING,250,penalizedLinearRegression,,,analysis
+supervisedLearningMethod,,STRING,250,randomForest,,,analysis
+supervisedLearningMethod,,STRING,250,supportVectorMachine,,,analysis
+supervisedLearningMethod,,STRING,250,deepLearning,,,analysis
+supervisedLearningMethod,,STRING,250,boosting,,,analysis
+supervisedLearningMethod,,STRING,250,bagging,,,analysis
+supervisedLearningMethod,,STRING,250,naiveBayes,,,analysis
+supervisedLearningMethod,,STRING,250,GaussianProcessRegression,,,analysis
+specimenQuantity,"Currently unused, but could be used to describe how much specimen remains",STRING,250,,,,dhart
+studySite,This describes the site where the specimen was collected,STRING,250,,,,dhart
+caseNumber,This is the case number from the virtual repository,STRING,250,,,,dhart
+collectionDate,The date when this was collected,STRING,250,,,,dhart
+projectNumber,There are four projects on going in the spore. This describes for which one the data was collected.,STRING,250,Project 1,The Plexiform NF project led,,dhart
+projectNumber,There are four projects on going in the spore. This describes for which one the data was collected.,STRING,250,Project 2,The MPNST project,,dhart
+projectNumber,There are four projects on going in the spore. This describes for which one the data was collected.,STRING,250,Project 3,The JMML project,,dhart
+projectNumber,There are four projects on going in the spore. This describes for which one the data was collected.,STRING,250,Project 4,The NF1 survivor project,,dhart
+fileStage,,STRING,250,staging,,,genie
+fileStage,,STRING,250,release,,,genie
+cBioFileFormat,,STRING,250,clinical,,,genie
+cBioFileFormat,,STRING,250,CNA,,,genie
+cBioFileFormat,,STRING,250,fusions,,,genie
+center,,STRING,250,NKI,,,genie
+center,,STRING,250,DFCI,,,genie
+center,,STRING,250,GRCC,,,genie
+center,,STRING,250,JHU,,,genie
+center,,STRING,250,MSK,,,genie
+center,,STRING,250,UHN,,,genie
+center,,STRING,250,VICC,,,genie
+center,,STRING,250,MDA,,,genie
+BrodmannArea,,STRING,250,,,,neuro
+group,,STRING,250,MSSM,,,neuro
+group,,STRING,250,Yale,,,neuro
+group,,STRING,250,LIBD,,,neuro
+group,,STRING,250,UCLA,,,neuro
+group,,STRING,250,UIC-UChicago,,,neuro
+group,,STRING,250,Duke,,,neuro
+group,,STRING,250,UNC,,,neuro
+group,,STRING,250,UCSF,,,neuro
+group,,STRING,250,USC,,,neuro
+group,,STRING,250,GIS,,,neuro
+group,,STRING,250,JHU,,,neuro
+group,,STRING,250,Emory,,,neuro
+group,,STRING,250,Broad-Rush,,,neuro
+group,,STRING,250,UFL-Mayo-ISB,,,neuro
+group,,STRING,250,Myers-NIAGADS,,,neuro
+group,,STRING,250,Harvard-MIT,,,neuro
+grant,,STRING,250,U01MH103339,,,neuro
+grant,,STRING,250,U01MH103392,,,neuro
+grant,,STRING,250,U01MH103346,,,neuro
+grant,,STRING,250,U01MH103340,,,neuro
+grant,,STRING,250,U01MH103365,,,neuro
+grant,,STRING,250,R01MH094714,,,neuro
+grant,,STRING,250,R21MH105881,,,neuro
+grant,,STRING,250,R01MH105472,,,neuro
+grant,,STRING,250,R21MH102791,,,neuro
+grant,,STRING,250,R21MH103877,,,neuro
+grant,,STRING,250,R01MH105898,,,neuro
+grant,,STRING,250,P50MH106934,,,neuro
+grant,,STRING,250,U01AG046152,,,neuro
+grant,,STRING,250,U01AG046170,,,neuro
+grant,,STRING,250,U01AG046139,,,neuro
+grant,,STRING,250,U01AG046161,,,neuro
+grant,,STRING,250,5R01AG046174,,,neuro
+grant,,STRING,250,R01AG046171,,,neuro
+assayTarget,,STRING,250,H3K9me3,,,neuro
+assayTarget,,STRING,250,H3K4me3,,,neuro
+assayTarget,,STRING,250,H3K4me1,,,neuro
+assayTarget,,STRING,250,H3K27ac,,,neuro
+assayTarget,,STRING,250,H3K36me3,,,neuro
+assayTarget,,STRING,250,H3K27me3,,,neuro
+assayTarget,,STRING,250,H3K9ac,,,neuro
+assayTarget,,STRING,250,REST,,,neuro
+assayTarget,,STRING,250,CTCF,,,neuro
+assayTarget,,STRING,250,input,,,neuro
+study,,STRING,250,CMC,,,neuro
+study,,STRING,250,EpiMap,,,neuro
+study,,STRING,250,CNON,,,neuro
+study,,STRING,250,MouseHAL,,,neuro
+study,,STRING,250,WGBS Pilot,,,neuro
+study,,STRING,250,lncRNA Pilot,,,neuro
+study,,STRING,250,BrainGVEX,,,neuro
+study,,STRING,250,UCLA-ASD,,,neuro
+study,,STRING,250,iPSC,,,neuro
+study,,STRING,250,HumanFC,,,neuro
+study,,STRING,250,EpiGABA,,,neuro
+study,,STRING,250,NHP,,,neuro
+study,,STRING,250,Yale-ASD,,,neuro
+study,,STRING,250,BipSeq,,,neuro
+study,,STRING,250,ACT,,,neuro
+study,,STRING,250,BLSA,,,neuro
+study,,STRING,250,HBTRC,,,neuro
+study,,STRING,250,MSBB,,,neuro
+study,,STRING,250,ROSMAP,,,neuro
+study,,STRING,250,MayoLOADGwas,,,neuro
+study,,STRING,250,MayoEGWAS,,,neuro
+study,,STRING,250,MayoPilot,,,neuro
+study,,STRING,250,IL10,,,neuro
+study,,STRING,250,Emory,,,neuro
+study,,STRING,250,TAUAPPms,,,neuro
+study,,STRING,250,sampleSwap,,,neuro
+study,,STRING,250,MayoRNAseq,,,neuro
+study,,STRING,250,BroadMDMi,,,neuro
+study,,STRING,250,BroadiPSC,,,neuro
+study,,STRING,250,MSDM,,,neuro
+study,,STRING,250,OFMM,,,neuro
+study,,STRING,250,Lilly_microgliaRNAseq,,,neuro
+study,,STRING,250,UPenn,,,neuro
+study,,STRING,250,SY5Y_REST,,,neuro
+study,,STRING,250,MSSMiPSC,,,neuro
+study,,STRING,250,TyrobpKO,,,neuro
+study,,STRING,250,MSSMiPSCMicroglia,,,neuro
+study,,STRING,250,BroadAstrom109,,,neuro
+study,,STRING,250,Banner,,,neuro
+study,,STRING,250,EmoryDrosophilaTau,,,neuro
+study,,STRING,250,WallOfTargets,,,neuro
+PMI,,STRING,250,,,,neuro
+fileSubFormat,,STRING,250,TranscriptomeSAM,,,neuro
+fileSubFormat,,STRING,250,SortedByCoordinate,,,neuro
+hemisphere,,STRING,250,left,,,neuro
+hemisphere,,STRING,250,right,,,neuro
+treatmentType,,STRING,250,haloperidol,,,neuro
+treatmentType,,STRING,250,placebo,,,neuro
+pH,,STRING,250,,,,neuro
+modelSystemName,,STRING,250,TREM2,,,neuro
+modelSystemName,,STRING,250,TYROBP,,,neuro
+modelSystemName,,STRING,250,AB42,,,neuro
+modelSystemName,,STRING,250,CRND8,,,neuro
+modelSystemName,,STRING,250,APPPS1,,,neuro
+modelSystemName,,STRING,250,MAPT-P301K,,,neuro
+modelSystemName,,STRING,250,rTg4510,,,neuro
+modelSystemName,,STRING,250,APPE693Q,,,neuro
+modelSystemName,,STRING,250,APPKM650,,,neuro
+modelSystemName,,STRING,250,APPKM670,,,neuro
+modelSystemName,,STRING,250,APPKM670-671NL-PSEN1deltaexon9,,,neuro
+modelSystemName,,STRING,250,TYROBP_WT,,,neuro
+modelSystemName,,STRING,250,TYROBP_WT.KO,,,neuro
+modelSystemName,,STRING,250,TYROBP_KO.KO,,,neuro
+study,This key represents a way to divide up research projects within or across consoritia,STRING,250,Cell Culture,NTAP-funded cell culture initiative related data,http://www.n-tap.org/initiatives/cell-culture-models/,nf
+study,This key represents a way to divide up research projects within or across consoritia,STRING,250,Unsolicited,NTAP-funded unsolicited efforts,http://www.n-tap.org/initiatives/open-proposal-program/,nf
+study,This key represents a way to divide up research projects within or across consoritia,STRING,250,PRO,NTAP-funded patient-related outcome program data,http://www.n-tap.org/initiatives/patient-reported-outcomes/,nf
+study,This key represents a way to divide up research projects within or across consoritia,STRING,250,Francis Collins,NTAP-funded Francis Collins scholar program data,http://www.n-tap.org/initiatives/collins-scholars/,nf
+study,This key represents a way to divide up research projects within or across consoritia,STRING,250,Cutaneous NF,Data derived from the CTF-funded cNF efforts,,nf
+nf2Genotype,"Genotype of NF2 gene, if known",STRING,250,-/-,Homozygous deletion or mutation,,nf
+nf2Genotype,"Genotype of NF2 gene, if known",STRING,250,+/-,Heterozygous deletion or mutation,,nf
+nf2Genotype,"Genotype of NF2 gene, if known",STRING,250,+/+,Homozygous wild type,,nf
+nf2Genotype,"Genotype of NF2 gene, if known",STRING,250,unknown,,,nf
+nf1Genotype,"Genotype of NF1 gene, if known",STRING,250,-/-,Homozygous deletion or mutation,,nf
+nf1Genotype,"Genotype of NF1 gene, if known",STRING,250,+/-,Heterozygous deletion or mutation,,nf
+nf1Genotype,"Genotype of NF1 gene, if known",STRING,250,+/+,Homozygous wildtype,,nf
+nf1Genotype,"Genotype of NF1 gene, if known",STRING,250,unknown,,,nf
+runType,,STRING,250,singleEnd,,,ngs
+runType,,STRING,250,pairedEnd,,,ngs
+isStranded,,BOOLEAN,250,TRUE,,,ngs
+isStranded,,BOOLEAN,250,FALSE,,,ngs
+readPairOrientation,the relative orientation of the reads in a paired-end protocol,STRING,250,inward,reads face each other,,ngs
+readPairOrientation,,STRING,250,outward,reads face away from each other,,ngs
+readPairOrientation,,STRING,250,matching,reads face the same direction,,ngs
+readStrandOrigin,the strand from which the read originates in a strand-specific protocol,STRING,250,forward,read 1 (or unpaired read) comes from the forward strand and read 2 (if applicable) comes from the reverse strand; equivalent to Tophat 'fr-secondstrand' type,,ngs
+readStrandOrigin,,STRING,250,reverse,read 1 (or unpaired read) comes from the reverse strand and read 2 (if applicable) comes from the forward strand; equivalent to Tophat 'fr-firststrand' type,,ngs
+readLength,,STRING,250,,,,ngs
+libraryPrep,,STRING,250,rRNAdepletion,,,ngs
+libraryPrep,,STRING,250,polyAselection,,,ngs
+libraryPrep,,STRING,250,lncRNAenrichment,,,ngs
+libraryPrep,,STRING,250,miRNAenrichment,,,ngs
+cellSubType,"This term is to be used when cell type is not specific enough, such as certain classes of T cells",STRING,250,,,,onc
+transplantationRecipientTissue,"In the case of a transplate, this describes the transplant destination",STRING,250,,,,onc
+transplantationType,"Type of transplantation involved in the experiment, derived from MESH",STRING,250,allograft,"Tissues, cells, or organs transplanted between genetically different individuals of the same species",https://www.ncbi.nlm.nih.gov/mesh/68064591,onc
+transplantationType,"Type of transplantation involved in the experiment, derived from MESH",STRING,250,xenograft,"Tissues, cells or organs transplanted between animals of different species",https://www.ncbi.nlm.nih.gov/mesh/68064593,onc
+transplantationType,"Type of transplantation involved in the experiment, derived from MESH",STRING,250,autograft,"Transplant comprised of an individual's own tissue, transferred from one part of the body to another.",https://www.ncbi.nlm.nih.gov/mesh/68064592,onc
+transplantationType,"Type of transplantation involved in the experiment, derived from MESH",STRING,250,isograft,"Tissues, cells or organs transplanted between genetically identical individuals",https://www.ncbi.nlm.nih.gov/mesh/68064596,onc
+genePerturbationType,Specific way in which a single gene was perturbed in a sample,STRING,250,overexpression,Gene overexpression refers to genetic techniques in which an organism or cell line is engineered to express increased levels of a gene.,http://www.bioassayontology.org/bao#BAO_0002442,onc
+genePerturbationType,Specific way in which a single gene was perturbed in a sample,STRING,250,knockdown,"Gene knockdown refers to techniques by which the expression of one or more of an organism's genes is reduced, either through genetic modification (a change in the DNA of one of the organism's chromosomes) or by treatment with a reagent such as a short DNA or RNA oligonucleotide with a sequence complementary to either an mRNA transcript or a gene.",http://www.bioassayontology.org/bao#BAO_0002433,onc
+genePerturbationType,Specific way in which a single gene was perturbed in a sample,STRING,250,knockout,A gene knockout is a genetic technique in which an organism is engineered to carry genes that have been made inoperative (have been 'knocked out' of the organism).,http://www.bioassayontology.org/bao#BAO_0002441,onc
+genePerturbationTechnology,Technology used to perform gene perturbation,STRING,250,RNAi,High throughput sample analysis of RNAi molecules for potential application in gene knockdown or gene silencing of target genes,http://purl.obolibrary.org/obo/ERO_0001688,onc
+genePerturbationTechnology,Technology used to perform gene perturbation,STRING,250,CRISPR,,,onc
+drugScreenType,String describing general class of drug screen,STRING,250,singleMolecule,An experiment in which a single molecule was used in an assay,,onc
+drugScreenType,String describing general class of drug screen,STRING,250,smallMoleculeLibraryScreen,"High throughput sample analysis of small molecules for purpose such as drug discovery, or biochemical, genetic or pharmacological tests.", http://purl.obolibrary.org/obo/ERO_0001726,onc
+drugScreenType,String describing general class of drug screen,STRING,250,combinationLibraryScreen,High throughput sample analysis of collections of compounds that provide a variety of chemically diverse structures that can be used to identify structure types that have affinity with pharmacological targets.,http://purl.obolibrary.org/obo/ERO_0001686,onc
+timePointUnit,For timed experiments this represents the unit of time measured,STRING,250,hours,,,onc
+timePointUnit,For timed experiments this represents the unit of time measured,STRING,250,days,,,onc
+transplantationDonorSpecies,Species from which donor tissue originated,STRING,250,Human,,,onc
+transplantationDonorSpecies,Species from which donor tissue originated,STRING,250,Mouse,,,onc
+experimentalCondition,"This describes the condition under which the data were collected, designed to be free form, extra things that do not fit in pre-defined terms",STRING,250,,,,onc
+modelSystem,Name of model system,STRING,250,,,,onc
+experimentalTimePoint,Number describing time point at which data was collected,STRING,250,,,,onc
+genePerturbed,"In the case of gene modulation, this describes the gene or genes that were modulated",STRING,250,,,,onc
+transplantationDonorTissue,,STRING,250,,,,onc
+specimenID,Identifying string linked to a particular sample or specimen,STRING,250,,,,standard
+assay,The technology used to generate the data in this file,STRING,250,rnaSeq,RNA Sequencing measurements,http://purl.obolibrary.org/obo/OBI_0001271,standard
+assay,The technology used to generate the data in this file,STRING,250,mirnaSeq,Small RNA measurements collected from RNA-Seq experiments,http://purl.obolibrary.org/obo/OBI_0002112,standard
+assay,The technology used to generate the data in this file,STRING,250,lncrnaSeq,Long non-coding RNA measurements collected from RNA-Seq experiments,,standard
+assay,The technology used to generate the data in this file,STRING,250,exomeSeq,Data derived from exome sequencing,http://purl.obolibrary.org/obo/OBI_0002118,standard
+assay,The technology used to generate the data in this file,STRING,250,CHiPSeq,Chromatin immuno-precipitation followed by sequencing,http://purl.obolibrary.org/obo/OBI_0000716,standard
+assay,The technology used to generate the data in this file,STRING,250,rnaArray,RNA measurements captured by array technology,http://purl.obolibrary.org/obo/OBI_0001463,standard
+assay,The technology used to generate the data in this file,STRING,250,snpArray,SNP measurements captured by array technology,http://purl.obolibrary.org/obo/OBI_0001204,standard
+assay,The technology used to generate the data in this file,STRING,250,methylationArray,Methylation data captured by array technology,http://purl.obolibrary.org/obo/OBI_0001332,standard
+assay,The technology used to generate the data in this file,STRING,250,mirnaArray,microRNA measurements captured by array technology,http://purl.obolibrary.org/obo/OBI_0001335,standard
+assay,The technology used to generate the data in this file,STRING,250,bisulfiteSeq,Methylation data captured by sequencing of DNA treated by a bisulfite-based chemical process,http://purl.obolibrary.org/obo/OBI_0000748,standard
+assay,The technology used to generate the data in this file,STRING,250,ATACSeq,Open chromatin regions measured by sequencing DNA after assay for transposase-accessible chromatin (ATAC) treatment,http://purl.obolibrary.org/obo/OBI_0002039,standard
+assay,The technology used to generate the data in this file,STRING,250,NOMeSeq,Nucleosome occupancy and DNA methylation profiles measured by chemical treatment of DNA followed by sequencing,,standard
+assay,The technology used to generate the data in this file,STRING,250,HI-C,Chromatin interactions detected by HI-C protocol,http://www.ebi.ac.uk/efo/EFO_0007693,standard
+assay,The technology used to generate the data in this file,STRING,250,errBisulfiteSeq,Data for enriched reduced representation bisulfite sequencing data,,standard
+assay,The technology used to generate the data in this file,STRING,250,ISOSeq,Full isoform sequencing,,standard
+assay,The technology used to generate the data in this file,STRING,250,MRI,"Techniques that uses magnetic fields and radiowaves to form images, typically to investigate the anatomy and physiology of the human body.",http://edamontology.org/topic_3444,standard
+assay,The technology used to generate the data in this file,STRING,250,westernBlot,A multistep process in which a mixture of proteins is separated by gel electrophoresis,http://purl.obolibrary.org/obo/MMO_0000338,standard
+assay,The technology used to generate the data in this file,STRING,250,wholeGenomeSeq,Laboratory technique to sequence the complete DNA sequence of an organism's genome at a single time,http://edamontology.org/topic_3673,standard
+assay,The technology used to generate the data in this file,STRING,250,polymeraseChainReaction,"A rapid technique for in vitro amplification of specific DNA or RNA sequences, allowing small quantities of short sequences to be analyzed without cloning",http://purl.obolibrary.org/obo/MMO_0000459,standard
+assay,The technology used to generate the data in this file,STRING,250,cellViabilityAssay,This assay type measures the cellular state of living or dying by measuring an indicator of life or death,http://www.bioassayontology.org/bao#BAO_0003009,standard
+assay,The technology used to generate the data in this file,STRING,250,atomicForceMicroscopy,Microscopy which uses a sharp spike (known as a 'tip') mounted on the end of a cantilever to scan the surface of the specimen,http://purl.obolibrary.org/obo/CHMO_0000113,standard
+assay,The technology used to generate the data in this file,STRING,250,brightfieldMicroscopy,Microscopy where the specimen is illuminated with light transmitted from a source on the opposite side of the specimen from the objective,http://purl.obolibrary.org/obo/CHMO_0000104,standard
+assay,The technology used to generate the data in this file,STRING,250,tractionForceMicroscopy,An experimental method for determining the tractions on the surface of a biological cell by obtaining measurements of the surrounding displacement field within an in vitro extracellular matrix (ECM),https://en.wikipedia.org/wiki/Traction_force_microscopy,standard
+assay,The technology used to generate the data in this file,STRING,250,targetedGeneSeq,Sequencing of a small set of genes at a generally greater depth than typical WGS methods,https://www.illumina.com/techniques/sequencing/dna-sequencing/targeted-resequencing/targeted-panels.html,standard
+assay,The technology used to generate the data in this file,STRING,250,jumpingLibrary,,,standard
+assay,The technology used to generate the data in this file,STRING,250,MIB/MS,Kinomics assay using multiplexed kinase inhibitor beads and mass spectrometry (MIB/MS),https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3328787/,standard
+assay,The technology used to generate the data in this file,STRING,250,MudPIT,MudPIT is a method for rapid and large-scale protein identification by multidimensional liquid chromatography associated with tandem mass spectrometry,http://purl.obolibrary.org/obo/MI_0658,standard
+dataSubtype,"Further qualification of dataType, which may be used to indicate the state of processing of the data, aggregation of the data, or presence of metadata.",STRING,250,dataMatrix,A file of data containing multiple values for multiple samples.,,standard
+dataSubtype,"Further qualification of dataType, which may be used to indicate the state of processing of the data, aggregation of the data, or presence of metadata.",STRING,250,raw,"A data file produced by an instrument, or one with very little subsequent processing.",,standard
+dataSubtype,"Further qualification of dataType, which may be used to indicate the state of processing of the data, aggregation of the data, or presence of metadata.",STRING,250,processed,A file of data generated from running one or more bioinformatics methods on a raw file.,,standard
+dataSubtype,"Further qualification of dataType, which may be used to indicate the state of processing of the data, aggregation of the data, or presence of metadata.",STRING,250,metadata,"A file of clinical, technical, or other parameters that describe a dataset.",,standard
+organ,The organ from which the sample is derived,STRING,250,skin,The integument of an animal (as a fur-bearing mammal or a bird) separated from the body usually with its hair or feathers.,http://purl.obolibrary.org/obo/BTO_0001253,standard
+organ,The organ from which the sample is derived,STRING,250,nerves,"Any of the filamentous bands of nervous tissue that connect parts of the nervous system with the other organs, conduct nervous impulses, and are made up of axons and dendrites together with protective and supportive structures.",http://purl.obolibrary.org/obo/BTO_0000925,standard
+organ,The organ from which the sample is derived,STRING,250,brain,The portion of the vertebrate central nervous system that constitutes the organ of thought and neural coordination.,http://purl.obolibrary.org/obo/BTO_0000142,standard
+organ,The organ from which the sample is derived,STRING,250,blood,"The fluid that circulates in the heart, arteries, capillaries, and veins of a vertebrate animal carrying nourishment and oxygen to and bringing away waste products from all parts of the body.",http://purl.obolibrary.org/obo/BTO_0000089,standard
+organ,The organ from which the sample is derived,STRING,250,breast,The fore or ventral part of the body between the neck and the abdomen.,http://purl.obolibrary.org/obo/BTO_0000149,standard
+organ,The organ from which the sample is derived,STRING,250,colon,The part of the large intestine that extends from the cecum to the rectum.,http://purl.obolibrary.org/obo/BTO_0000269,standard
+organ,The organ from which the sample is derived,STRING,250,lung,One of the usually paired compound saccular thoracic organs that constitute the basic respiratory organ of air-breathing vertebrates.,http://purl.obolibrary.org/obo/BTO_0000763,standard
+organ,The organ from which the sample is derived,STRING,250,prostate,Lobular organ the parenchyma of which has as its parts glandular acini which are continuous with the prostatic part of the urethra.,http://purl.obolibrary.org/obo/FMA_9600,standard
+organ,The organ from which the sample is derived,STRING,250,pancreas,A large lobulated gland of vertebrates that secretes digestive enzymes and the hormones insulin and glucagon.,http://purl.obolibrary.org/obo/BTO_0000988,standard
+organ,The organ from which the sample is derived,STRING,250,ovary,One of the typically paired essential female reproductive organs that produce eggs and in vertebrates female sex hormones.,http://purl.obolibrary.org/obo/BTO_0000975,standard
+organ,The organ from which the sample is derived,STRING,250,spleen,"A highly vascular ductless organ that is located in the left abdominal region near the stomach or intestine of most vertebrates and is concerned with final destruction of red blood cells, filtration and storage of blood, and production of lymphocytes.",http://purl.obolibrary.org/obo/BTO_0001281,standard
+fundingAgency,The organization providing financial support for generation of this data.,STRING,250,CTF,Childrens' Tumor Foundation,http://www.ctf.org,standard
+fundingAgency,The organization providing financial support for generation of this data.,STRING,250,NIH-NCI,National Institutes of Health - National Cancer Institute,https://www.cancer.gov,standard
+fundingAgency,The organization providing financial support for generation of this data.,STRING,250,NTAP,Neurofibromatosis Therapeutic Acceleration Program,http://www.n-tap.org,standard
+fundingAgency,The organization providing financial support for generation of this data.,STRING,250,NIH-NIA,National Institutes of Health - National Institute of Aging,https://www.nia.nih.gov,standard
+fundingAgency,The organization providing financial support for generation of this data.,STRING,250,NIH-NIMH,National Institutes of Health - National Institute of Mental Health,https://www.nimh.nih.gov,standard
+fundingAgency,The organization providing financial support for generation of this data.,STRING,250,AACR,American Association for Cancer Research,http://www.aacr.org,standard
+dataType,Types of input/output data in bioinformatics pipelines,STRING,250,genomicVariants,"Genomic alterations, including single nucleotide polymorphisms, short indels and structural variants, in a genome sequence.",https://www.ebi.ac.uk/ols/ontologies/edam/terms?iri=http%3A%2F%2Fedamontology.org%2Foperation_3227,standard
+dataType,Types of input/output data in bioinformatics pipelines,STRING,250,image,Biological or biomedical data that has been rendered into an image.,https://www.ebi.ac.uk/ols/ontologies/edam/terms?iri=http%3A%2F%2Fedamontology.org%2Fdata_2968,standard
+dataType,Types of input/output data in bioinformatics pipelines,STRING,250,geneExpression,The analysis of levels and patterns of synthesis of gene products (proteins and functional RNA) including interpretation in functional terms of gene expression data.,https://www.ebi.ac.uk/ols/ontologies/edam/terms?iri=http%3A%2F%2Fedamontology.org%2Ftopic_0203,standard
+dataType,Types of input/output data in bioinformatics pipelines,STRING,250,isoformExpression,Expression of protien isoforms formed from alternative splicings or other post-translational modifications of a single gene through RNA splicing mechanisms.,https://en.wikipedia.org/wiki/Protein_isoform,standard
+dataType,Types of input/output data in bioinformatics pipelines,STRING,250,proteomics,"Protein and peptide identification, especially in the study of whole proteomes of organisms.",https://www.ebi.ac.uk/ols/ontologies/edam/terms?iri=http%3A%2F%2Fedamontology.org%2Ftopic_0121,standard
+dataType,Types of input/output data in bioinformatics pipelines,STRING,250,kinomics,Kinomics is the study of protein kinases and protein kinase signaling.,http://www.kinomecore.com/what-is-kinomics/,standard
+dataType,Types of input/output data in bioinformatics pipelines,STRING,250,drugScreen,Information on drug sensitivity and molecular markers of drug response,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3531057/,standard
+dataType,Types of input/output data in bioinformatics pipelines,STRING,250,cellularPhysiology,,,standard
+dataType,Types of input/output data in bioinformatics pipelines,STRING,250,chromatinActivity,Chromatin activity that allow access of condensed genomic DNA and potentially control gene expression.,https://en.wikipedia.org/wiki/Chromatin_remodeling,standard
+individualIdSource,Database or repository to which individual ID maps,STRING,250,,,,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,cerebral cortex,The thin layer of gray matter on the surface of the cerebral hemisphere that develops from the telencephalon.,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000956,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,frontal lobe,Frontal lobe is the anterior-most of five lobes of the cerebral hemisphere. It is bounded by the central sulcus on its posterior border and by the longitudinal cerebral fissure on its medial border.,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0016525,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,hippocampus,A curved elongated ridge that extends over the floor of the descending horn of each lateral ventricle of the brain and consists of gray matter covered on the ventricular surface with white matter.,https://www.ebi.ac.uk/ols/ontologies/bto/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBTO_0000601,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,nerve tissue,"Portion of tissue in the nervous system which consists of neurons and glial cells, and may also contain parts of the vasculature.",https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0003714,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,dorsolateral prefrontal cortex,"Broadly-defined, consists of the lateral portions of Brodmann areas 9 - 12, of areas 45, 46, and the superior part of area 47.",https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0009834,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,anterior cingulate cortex,That portion of the cingulate cortex which is located within the frontal lobe (the remainder being in the parietal lobe).,https://www.ebi.ac.uk/ols/ontologies/bto/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBTO_0004249,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,frontal pole,Component of the frontal lobe. The rostral and caudal boundaries of the frontal pole are the superior frontal gyrus and the rostral division of the middle frontal gyrus respectively (Christine Fennama-Notestine).,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002795,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,parahippocampal gyrus,"A long convolution on the medial surface of the temporal lobe, forming the lower part of the fornicate gyrus, extending from behind the splenium corporis callosi forward along the dentate gyrus of the hippocampus from which it is demarcated by the hippocampal fissure.",https://www.ebi.ac.uk/ols/ontologies/bto/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBTO_0004380,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,superior temporal gyrus,"Component of the temporal lobe, lateral aspect. The rostral boundary is the rostral extent of the ssuperior temporal sulcus. The caudal boundary is the cauday portion of the superior temporal gyrus (posterior to becoming continuous with the supramarginal gyrus).",https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002769,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,inferior frontal gyrus,"Component of the frontal lobe, lateral aspect. The rostral boundary is the first appearance of the inferior frontal sulcus whereas the caudal boundary is the precentral gyrus. The medial and lateral boundaries are the lateral bank of the inferior frontal sulcus and the medial bank of the lateral orbital sulcus and/or the circular insular sulcus respectively (Christein Fennema-Notestine).",https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002998,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,cerebellum,Part of the metencephalon that lies in the posterior cranial fossa behind the brain stem.,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002037,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,occipital visual cortex,The area of the occipital lobe of the cerebral cortex concerned with vision.,https://www.ebi.ac.uk/ols/ontologies/bto/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBTO_0001857,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,inferior temporal gyrus,"Component of the temporal lobe, lateral aspect. The rostral boundary is the rostral extent of the inferior temporal sulcus whereas the caudal boundary is designated as the temporo-occipital incisure on the cortical surface.",https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002751,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,middle temporal gyrus,"Component of the temporal lobe, lateral aspect. The rostral boundary is the rostral extent of the superior temporal sulcus whereas the caudal boundary is the temporo-occipital incisure on the cortical surface.",https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002771,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,posterior cingulate cortex,Component of the cingulate cortex. The rostral and caudal extent were the caudal anterior and the isthmus divisions of the cingulate cortex respectively.,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0022353,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,temporal pole,Anterior component of the temporal lobe (rostral boundary) extends caudally to the entorhinal cortex.,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002576,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,precentral gyrus,Component of the frontal lobe. The appearance and disappearance of the central sulcus is the rostral and caudal boundaries of the precentral gyrus respectively.,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002703,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,superior parietal lobe,A superficial feature of the parietal lobe that extends from the dorsal surface of the superior parietal lobule across the margin of the parietal lobe into the precuneus.,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0026724,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,prefrontal cortex,"The prefrontal cortex is the anterior part of the frontal lobes of the brain, lying in front of the motor and premotor areas.",https://www.ebi.ac.uk/ols/ontologies/bto/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBTO_0002807,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,amygdala,The one of the four basal ganglia in each cerebral hemisphere that is part of the limbic system and consists of an almond-shaped mass of gray matter in the anterior extremity of the temporal lobe.,https://www.ebi.ac.uk/ols/ontologies/bto/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBTO_0001042,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,caudate nucleus,Subcortical nucleus of telecephalic origin consisting of an elongated gray mass lying lateral to and bordering the lateral ventricle.,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001873,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,nucleus accumbens,A region of the brain consisting of a collection of neurons located in the forebrain ventral to the caudate and putamen (caudoputamen in rodent).,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001882,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,putamen,"Subcortical nucleus of telencephalic , which together with the caudate nucleus, forms the striatum.",https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001874,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,temporal cortex,"Gray matter of the temporal region of the neocortex, located in the temporal lobe in gyrencephalic animals.",https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0016538,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,orbitofrontal cortex,The region of the cerebral cortex covering the basal surface of the frontal lobes.,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0004167,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,ventrolateral prefrontal cortex,"Is part of the prefrontal cortex, located on the inferior frontal gyrus, bounded superiorly by the inferior frontal sulcus and inferiorly by the lateral sulcus.",https://en.wikipedia.org/wiki/Ventrolateral_prefrontal_cortex,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,medial frontal cortex,Component of the orbtial frontal cortex. The rostral boundary is the first slice where the medial orbital gyrus became visible whereas the caudal boundary is the disappearance of the medial orbital gyrus/gyrus rectus.,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0022352,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,primary motor cortex,,,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,primary somatosensory cortex,The part of the cerebral cortex that receives projections from the motor thalamus and which projects to motor neurons in the brainstem and spinal cord.,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001384,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,posteroinferior parietal cortex,"Gray matter of the parietal region of the neocortex, located in the parietal lobe of gyrencephalic animals.",https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0016530,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,primary auditory cortex,The part of the auditory cortex that is located on the superior temporal gyrus in the temporal lobe and receives point-to-point input from the ventral division of the medial geniculate complex.,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0034751,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,posterior superior temporal cortex,,,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,inferolateral temporal cortex,,,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,primary visual cortex,A subdivision of the cytoarchitecturally defined occipital region of cerebral cortex in the human.,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002436,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,amygdaloid complex,,,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,striatum,"A region of the forebrain consisting of the caudate nucleus, putamen and fundus striati.",https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0002435,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,mediodorsal nucleus of thalamus,,,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,cerebellar cortex,"The superficial gray matter of the cerebellum. It consists of three layers, the stratum moleculare, stratum granulosum, and stratum purkinjense.",https://www.ebi.ac.uk/ols/ontologies/bto/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBTO_0000043,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,serum,Liquid derived from blood plasma that has clotting factors removed.,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0001977,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,splenocyte,Any leukocyte that is part of a spleen.,https://www.ebi.ac.uk/ols/ontologies/cl/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FCL_2000074,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,blood,A fluid that is composed of blood plasma and erythrocytes.,https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0000178,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,primary tumor,"A primary tumor is the tumor at the initial site of cancer, not where the cancer may have spread or metastasized, called the secondary tumor.",https://cancergenome.nih.gov/cancersselected/biospeccriteria,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,Not Applicable,,,standard
+tissue,A tissue is a mereologically maximal collection of cells that together perform physiological function.,STRING,250,meninges,The three thin layers of tissue that cover and protect the brain and spinal cord.,https://www.ncbi.nlm.nih.gov/pubmedhealth/PMHT0024758/,standard
+consortium,The name of the consortium,STRING,250,CommonMind Consortium,,https://www.synapse.org/cmc,standard
+consortium,The name of the consortium,STRING,250,PsychENCODE Consortium,,https://www.synapse.org/pec,standard
+consortium,The name of the consortium,STRING,250,AMP-AD,Accelerating Medicines Partnership-Alzheimer‰Ûªs Disease,https://www.synapse.org/ampad,standard
+consortium,The name of the consortium,STRING,250,MODEL-AD,Model Development and Evaluation for Late Onset AD,https://www.synapse.org/ampad,standard
+consortium,The name of the consortium,STRING,250,M2OVE-AD,Molecular Mechanisms of the Vascular Etiology of Alzheimer‰Ûªs Disease ,https://www.synapse.org/ampad,standard
+consortium,The name of the consortium,STRING,250,BSMN,Brain Somatic Mosaicism Network,https://www.synapse.org/bsmn,standard
+consortium,The name of the consortium,STRING,250,CSBC,Cancer Systems Biology Consortium,https://csbconsortium.org/,standard
+consortium,The name of the consortium,STRING,250,PSON,Physical Science in Oncology,https://physics.cancer.gov/,standard
+consortium,The name of the consortium,STRING,250,GENIE,Genomics Evidence Neoplasia Information Exchange,http://www.aacr.org/Research/Research/Pages/aacr-project-genie.aspx#.WOQS9RIrKF0,standard
+consortium,The name of the consortium,STRING,250,Synodos NF1,Data derived from the CTF-funded NF1 pre-clinical model Synodos project,https://www.synapse.org/ctf,standard
+consortium,The name of the consortium,STRING,250,Synodos NF2,Data derived from the CTF-funded NF2 Synodos project,https://www.synapse.org/syndosnf2,standard
+consortium,The name of the consortium,STRING,250,Synodos LGG,Data derived from the CTF-funded NF1 LGG Synodos project,http://www.synapse.org/nf1lgg,standard
+consortium,The name of the consortium,STRING,250,DHART SPORE,Data from the D-HART SPORE,http://www.synapse.org/dhart,standard
+consortium,The name of the consortium,STRING,250,Not Applicable,,,standard
+individualID,The name of the consortium,STRING,250,,,,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,idx,,,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,bam,"BAM format, the binary, BGZF-formatted compressed version of SAM format for alignment of nucleotide sequences (e.g. sequencing reads) to (a) reference sequence(s)",http://edamontology.org/format_2572,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,bai,BAM indexing format,http://edamontology.org/format_3327,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,excel,Microsoft Excel spreadsheet format,,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,powerpoint,Microsoft Powerpoint slide format,,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,tif,"Tagged Image File Format, abbreviated TIFF or TIF, is a computer file format for storing raster graphics images",https://en.wikipedia.org/wiki/TIFF,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,png,PNG is a file format for image compression,http://edamontology.org/format_3603,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,doc,Microsoft Word document format,,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,pdf,Portable Document Format,http://edamontology.org/format_3508,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,hdf,"Hierarchical Data Format (HDF) is a set of file formats (HDF4, HDF5) designed to store and organize large amounts of data",https://en.wikipedia.org/wiki/Hierarchical_Data_Format,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,fasta,"FASTA format is a text-based format for representing either nucleotide sequences or peptide sequences, in which nucleotides or amino acids are represented using single-letter codes",https://en.wikipedia.org/wiki/FASTA_format,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,fastq,FASTQ format is a text-based format for storing both a biological sequence (usually nucleotide sequence) and its corresponding quality scores. Both the sequence letter and quality score are each encoded with a single ASCII character for brevity,https://en.wikipedia.org/wiki/FASTQ_format,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,sam,Sequence Alignment/Map (SAM) format for alignment of nucleotide sequences (e.g. sequencing reads) to (a) reference sequence(s),http://edamontology.org/format_2573,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,vcf,"Variant Call Format (VCF) for sequence variation (indels, polymorphisms, structural variation)",http://edamontology.org/format_3016,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,bcf,"BCF, the binary version of Variant Call Format (VCF) for sequence variation (indels, polymorphisms, structural variation)",http://edamontology.org/format_3016,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,maf,"Multiple Alignment Format (MAF) supporting alignments of whole genomes with rearrangements, directions, multiple pieces to the alignment, and so forth",http://edamontology.org/format_3008,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,bed,"Browser Extensible Data (BED) format of sequence annotation track, typically to be displayed in a genome browser",http://edamontology.org/format_3003,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,chp,CHP file contains probe set analysis results generated from Affymetrix software,,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,cel,Format of Affymetrix data file of information about (raw) expression levels of the individual probes,http://edamontology.org/format_1638,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,sif,SIF (simple interaction file) Format - a network/pathway format used for instance in cytoscape,http://edamontology.org/format_3619,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,tsv,Tabular data represented as tab-separated values in a text file,http://edamontology.org/format_3475,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,csv,Tabular data represented as comma-separated values in a text file,http://edamontology.org/format_3752,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,txt,Textual format,http://edamontology.org/format_2330,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,plink,Any Plink file format (MAP/PED/BED),,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,idat,Proprietary file format for (raw) BeadArray data used by genomewide profiling platforms from Illumina Inc,http://edamontology.org/format_3578,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,bigwig,bigWig format for large sequence annotation tracks that consist of a value for each sequence position,http://edamontology.org/format_3006,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,wiggle,Wiggle format (WIG) of a sequence annotation track that consists of a value for each sequence position,http://edamontology.org/format_3005,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,gct,"Tab-delimited text files of GenePattern that contain a column for each sample, a row for each gene, and an expression value for each gene in each sample",http://edamontology.org/format_3709,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,bgzip,Blocked GNU Zip format,http://edamontology.org/format_3615,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,seg,SEG file (segmented data; .seg or .cbs) is a tab-delimited text file that lists loci and associated numeric values,https://software.broadinstitute.org/software/igv/SEG,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,html,HTML format,http://edamontology.org/format_2331,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,md,Markdown (MD) is a lightweight markup language with plain text formatting syntax,https://en.wikipedia.org/wiki/Markdown,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,flagstat,Output of samtools flagstat tool,,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,gtf,Gene transfer format (GTF) is a file format used to hold information about gene structure,https://en.wikipedia.org/wiki/Gene_transfer_format,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,raw,Proprietary file format for mass spectrometry data from Thermo Scientific,http://edamontology.org/format_3712,standard
+fileFormat,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,msf,Proprietary mass-spectrometry format of Thermo Scientific's ProteomeDiscoverer software,http://edamontology.org/format_3702,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,HiSeq2500,Illumina HiSeq 2500 (Homo sapiens),https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL16791,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,HiSeq2000,Illumina HiSeq 2000 (Homo sapiens),https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL11154,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,MiSeq,Illumina MiSeq (Homo sapiens),https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL15520,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,PsychChip,,,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,Affy5.0,Affymetrix Genome-Wide Human SNP 5.0 Array,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL6804,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,Affy6.0,Affymetrix Genome-Wide Human SNP 6.0 Array,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL6801,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,PacBioRSII,PacBio RS II (Homo sapiens),https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL21311,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,GAIIx,,,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,Illumina_HumanOmni1-Quadv1.0,,,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,Illumina_1M,,,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,Illumina_h650,,,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,Illumina_Omni2pt5M,,,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,Illumina_Omni5M,,,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,Perlegen300Karray,,,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,Agilent44Karray,,,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,IlluminaWholeGenomeDASL,Illumina Human Whole-Genome DASL HT,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL13369,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,IlluminaHumanHap300,,,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,NanostringnCounter,,,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,LTQOrbitrapXL,LTQ Orbitrap XL Hybrid Ion Trap-Orbitrap Mass Spectrometer,https://www.thermofisher.com/order/catalog/product/IQLAAEGAAPFADBMAOK,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,IlluminaHumanMethylation450,Illumina HumanMethylation450 BeadChip ,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL13534,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,AffymetrixU133AB,,,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,AffymetrixU133Plus2,Affymetrix Human Genome U133 Plus 2.0 Array,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL570,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,confocalImaging,,,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,IlluminaHumanHT-12_V3_0_R1,,,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,SequenomMultiplex,,,standard
+platform,"Defined format of the data file, typically corresponding to extension, but sometimes indicating more general group of files produced by the same tool or software",STRING,250,HiSeqX,A whole-genome sequencing platform,,standard
+isCellLine,Boolean flag indicating whether or not sample source is a cell line,BOOLEAN,250,TRUE,,,standard
+isCellLine,Boolean flag indicating whether or not sample source is a cell line,BOOLEAN,250,FALSE,,,standard
+isPrimaryCell,Boolean flag indicating whether or not cellType is primary,BOOLEAN,250,TRUE,"A cell taken directly from a living organism, which is not immortalized",http://purl.obolibrary.org/obo/BTO_0001413,standard
+isPrimaryCell,Boolean flag indicating whether or not cellType is primary,BOOLEAN,250,FALSE,,,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,B-lymphocytes,A lymphocyte of B lineage with the phenotype CD19-positive and surface immunoglobulin-positive.,https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FCL_0000236,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,induced pluripotent stem cells,Induced pluripotent stem cells (iPS cells or iPSCs) are a type of pluripotent stem cell artificially derived from a non-pluripotent cell.,https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fefo%2FEFO_0004905,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,GABAergic neurons,A neuron that uses GABA as a vesicular neurotransmitter.,https://www.ebi.ac.uk/ols/ontologies/zfa/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FZFA_0009276,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,monocytes,"Myeloid mononuclear recirculating leukocyte that can act as a precursor of tissue macrophages, osteoclasts and some populations of tissue dendritic cells.",https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FCL_0000576,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,microglia,"The small, non-neural, interstitial cells of mesodermal origin that form part of the supporting structure of the central nervous system.",https://www.ebi.ac.uk/ols/ontologies/bto/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBTO_0000078,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,macrophages,"A mononuclear phagocyte present in variety of tissues, typically differentiated from monocytes, capable of phagocytosing a variety of extracellular particulate material, including immune complexes, microorganisms, and dead cells.",https://www.ebi.ac.uk/ols/ontologies/cl/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FCL_0000235,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,astrocytes,"Astrocytes (from 'star' cells) are irregularly shaped with many long processes, including those with end-feet which form the glial (limiting) membrane and directly and indirectly contribute to the blood-brain barrier.",https://www.ebi.ac.uk/ols/ontologies/cl/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FCL_0000127,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,SH-SY5Y,Human neuroblastoma clonal subline of the neuroepithelioma cell line SK-N-SH that had been established in 1970 from the bone marrow biopsy of a 4-year-old girl with metastatic neuroblastoma.,https://www.ebi.ac.uk/ols/ontologies/bto/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBTO_0000793,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,GLUtamatergic neurons,"Have Glutamate receptors, which are synaptic receptors located primarily on the membranes of neuronal cells. Glutamate (the conjugate base of glutamic acid) is abundant in the human body, but particularly in the nervous system and especially prominent in the human brain.",https://en.wikipedia.org/wiki/Glutamate_receptor,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,NeuN+,Is a neuronal nuclear antigen that is commonly used as a biomarker for neurons and NeuN immunoreactivity has been widely used to identify neurons in tissue culture to measure the neuron(positive)/glia(negative) ratio in brain regions.,https://en.wikipedia.org/wiki/NeuN,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,NeuN-,Is a neuronal nuclear antigen that is commonly used as a biomarker for neurons and NeuN immunoreactivity has been widely used to identify neurons in tissue culture to measure the neuron(positive)/glia(negative) ratio in brain regions.,https://en.wikipedia.org/wiki/NeuN,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,epithelial,Somatic cells that cover the surface of the body and line its cavities.,https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FCL_0000066,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,epithelial-like,"In cell morphology, epithelial-like cells are polygonal in shape with more regular dimensions, and grow attached to a substrate in discrete patches.",https://www.thermofisher.com/us/en/home/references/gibco-cell-culture-basics/cell-morphology.html,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,fibroblast,A connective tissue cell which secretes an extracellular matrix rich in collagen and other macromolecules. Flattened and irregular in outline with branching processes; appear fusiform or spindle-shaped.,https://www.ebi.ac.uk/ols/ontologies/cl/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FCL_0000057,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,round,A phenotype observation at the level of the cell shape where the cell is round,https://www.ebi.ac.uk/ols/ontologies/cmpo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fcmpo%2FCMPO_0000118,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,lymphoblast,"Often referred to as a blast cell. Unlike other usages of the suffix -blast a lymphoblast is a further differentiation of a lymphocyte, T- or B-, occasioned by an antigenic stimulus. The lymphoblast usually develops by enlargement of a lymphocyte, active re-entry to the S phase of the cell cycle, mitogenesis and production of much m-RNA and ribosomes.",https://www.ebi.ac.uk/ols/ontologies/bto/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBTO_0000772,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,polygonal,"A polygonal face is a polygon bounded by a circuit of polygon edges, and includes the flat (plane) region inside the boundary.",https://www.ebi.ac.uk/ols/ontologies/sio/terms?iri=http%3A%2F%2Fsemanticscience.org%2Fresource%2FSIO_000503,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,CD8+ T-Cells," Is a T lymphocyte (a type of white blood cell) that kills cancer cells, cells that are infected (particularly with viruses), or cells that are damaged in other ways.",https://en.wikipedia.org/wiki/Cytotoxic_T_cell,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,arachnoid,An arachnoid mater is a delicate membrane that encloses the spinal cord and brain and lies between the pia mater and dura mater.,https://www.ebi.ac.uk/ols/ontologies/bto/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBTO_0001636,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,meningioma,A central nervous system cancer tissue that are manifested in the central nervous system and arise from the arachnoid 'cap' cells of the arachnoid villi in the meninges.,https://www.ebi.ac.uk/ols/ontologies/doid/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDOID_3565,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,schwannoma,"A neoplasm that arises from SCHWANN CELLS of the cranial, peripheral, and autonomic nerves.",https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fefo%2FEFO_0000693,standard
+cellType,A cell type is a distinct morphological or functional form of cell.,STRING,250,schwann,Schwann cells are a variety of glial cell that keep peripheral nerve fibres (both myelinated and unmyelinated) alive.,https://www.ebi.ac.uk/ols/ontologies/bto/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBTO_0001220,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Neurofibromatosis 1,"(NF1) - A disease characterized by patches of skin pigmentation (cafe-au-lait spots), Lisch nodules of the iris, tumors in the peripheral nervous system and fibromatous skin tumors. Individuals with the disorder have increased susceptibility to the development of benign and malignant tumors.",,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Neurofibromatosis 2,"(NF2) - Genetic disorder characterized by bilateral vestibular schwannomas (formerly called acoustic neuromas), schwannomas of other cranial and peripheral nerves, meningiomas, and ependymomas. It is inherited in an autosomal dominant fashion with full penetrance.",https://www.ebi.ac.uk/ols/ontologies/cco/terms?iri=http%3A%2F%2Fidentifiers.org%2Fomim%2F101000,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Bipolar Disorder,"A mood disorder formerly characterised by alternating periods of mania and depression (and in some cases rapid cycling, mixed states, and psychotic symptoms).",https://www.ebi.ac.uk/ols/ontologies/nbo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FNBO_0000258,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Alzheimer Disease,"(AD) - Alzheimer disease is a neurodegenerative disorder characterized by progressive dementia, loss of cognitive abilities, and deposition of fibrillar amyloid proteins as intraneuronal neurofibrillary tangles, extracellular amyloid plaques and vascular amyloid deposits.",https://www.ebi.ac.uk/ols/ontologies/cco/terms?iri=http%3A%2F%2Fidentifiers.org%2Fomim%2F104300,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Schizophrenia,"A severe emotional disorder of psychotic depth characteristically marked by a retreat from reality with delusion formation, HALLUCINATIONS, emotional disharmony, and regressive behavior.",https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fefo%2FEFO_0000692,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Autism Spectrum Disorder,"Wide continuum of associated cognitive and neurobehavioral disorders, including, but not limited to, three core-defining features: impairments in socialization, impairments in verbal and nonverbal communication, and restricted and repetitive patterns of behaviors.",https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fefo%2FEFO_0003756,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Fibrocystic Breast Disease,breast fibrocystic disease is a benign mammary displasia characterised by breast discomfort and 'lumpiness'.,https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fefo%2FEFO_0003014,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Breast Cancer,(BC) - A common malignancy originating from breast epithelial tissue.,https://www.ebi.ac.uk/ols/ontologies/cco/terms?iri=http%3A%2F%2Fidentifiers.org%2Fomim%2F114480,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Colon Cancer,A colorectal cancer that is located_in the colon.,https://www.ebi.ac.uk/ols/ontologies/doid/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDOID_219,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Lung Cancer,A respiratory system cancer that is located_in the lung.,https://www.ebi.ac.uk/ols/ontologies/doid/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDOID_1324,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Prostate Cancer,A male reproductive organ cancer that is located_in the prostate.,https://www.ebi.ac.uk/ols/ontologies/doid/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDOID_10283,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Pancreas Cancer,An endocrine gland cancer located_in the pancreas.,https://www.ebi.ac.uk/ols/ontologies/doid/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDOID_1793,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Skin Cancer,An integumentary system cancer located_in the skin that is the uncontrolled growth of abnormal skin cells.,https://www.ebi.ac.uk/ols/ontologies/doid/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDOID_4159,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Brain Cancer,A central nervous system cancer that is characterized by the growth of abnormal cells in the tissues of the brain.,https://www.ebi.ac.uk/ols/ontologies/doid/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDOID_1319,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Ovary Cancer,An ovarian cancer that is derives_from ovarian surface epithelium.,https://www.ebi.ac.uk/ols/ontologies/doid/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDOID_2152,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Control,The act of directing or determining; regulation or maintenance of a function or action; a relation of constraint of one entity (thing or person or group) by another.,https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fefo%2FEFO_0001461,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Affective Disorder,Change in mood is the main underlying feature of these disorders.,Sage,standard
+diagnosis,A diagnosis is the result of a medical investigation to identify a disorder from its signs and symptoms.,STRING,250,Not Applicable,,,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Neurofibroma Cutaneous,An intraneural or extraneural neoplasm arising from nerve tissues and neural sheaths of skin.,https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fefo%2FEFO_0000622,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Neurofibroma Subcutaneous,An intraneural neoplasm arising from nerve tissues and neural sheaths laying under the skin.,https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fefo%2FEFO_0000622,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Neurofibroma Plexiform,"Plexiform neurofibromas are larger, more extensive tumors that grow from nerves anywhere in the body.",https://nfcenter.wustl.edu/what-is-nf/neurofibromatosis-type-1/nerve-tumors/,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Neurofibroma Atypical,An intraneural or extraneural neoplasm arising from nerve tissues and neural sheaths that does not belong to a known subtype.,https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fefo%2FEFO_0000622,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Malignant Peripheral Nerve Sheath Tumor,"The tumors usually develop along peripheral or cranial nerves and are a central feature of NEUROFIBROMATOSIS 1, where they may occur intracranially or involve spinal roots.",https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fefo%2FEFO_0000622,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Adenocarcinoma,"A common cancer characterized by the presence of malignant glandular cells. Morphologically, adenocarcinomas are classified according to the growth pattern (e.g., papillary, alveolar) or according to the secreting product (e.g., mucinous, serous).",https://www.ebi.ac.uk/ols/ontologies/mp/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FNCIT_C2852,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Carcinoma,A cell type cancer that has_material_basis_in abnormally proliferating cells derives_from epithelial cells.,https://www.ebi.ac.uk/ols/ontologies/doid/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDOID_305,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Ductal Carcinoma,"Invasive ductal carcinoma (IDC), an infiltrating, malignant and abnormal proliferation of neoplastic cells in the breast tissue, or ductal carcinoma in situ (DCIS), a noninvasive, possibly malignant, neoplasm that is still confined to the milk ducts (lactiferous ducts), where breast cancer most often originates.",https://www.ebi.ac.uk/ols/ontologies/bto/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBTO_0004851,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Melanoma,"A malignant, usually aggressive tumor composed of atypical, neoplastic melanocytes.",https://www.ebi.ac.uk/ols/ontologies/mp/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FNCIT_C3224,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Optic Nerve Glioma,"Optic pathway glioma (OPG) is a benign tumor that develop along the optic nerve (chiasm, tracts, and radiations) characterized by impairment or loss of vision and may be accompanied by diencephalic symptoms such as reduced growth and alteration in sleeping patterns. OPG are often linked to neurofibromatosis type 1.",https://www.ebi.ac.uk/ols/ontologies/ordo/terms?iri=http%3A%2F%2Fwww.orpha.net%2FORDO%2FOrphanet_2086,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Low Grade Glioma,Low grade gliomas are brain tumors that come from two different types of brain cells known as astrocytes and oligodendrocytes.,https://www.urmc.rochester.edu/neurosurgery/specialties/neurooncology/conditions/low-grade-glioma.aspx,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Diffuse Astrocytoma,Also called Low-Grade or Astrocytoma Grade II is a subtype of glial tumor of the brain or spinal cord showing astrocytic differentiation.,https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fefo%2FEFO_0000272,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Anaplastic Astrocytoma,"A diffusely infiltrating, WHO grade III astrocytoma with focal or dispersed anaplasia, and a marked proliferative potential. It may arise from a low-grade astrocytoma, but it can also be diagnosed at first biopsy, without indication of a less malignant precursor lesion. It has an intrinsic tendency for malignant progression to glioblastoma.",https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fefo%2FEFO_0002499,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Glioblastoma,"Develop primarily through increasing anaplasia of well differentiated gliomas, mainly astrocytomas or oligodendrogliomas. Typically large and contain cells of different sizes with irrregular nuclei and atypical mitotic figures.",https://www.ebi.ac.uk/ols/ontologies/mpath/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FMPATH_564,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Schwannoma,"A neoplasm that arises from SCHWANN CELLS of the cranial, peripheral, and autonomic nerves. ",https://www.ebi.ac.uk/ols/ontologies/efo/terms?iri=http%3A%2F%2Fwww.ebi.ac.uk%2Fefo%2FEFO_0000693,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Meningioma,A generally slow growing tumor attached to the dura mater. It is composed of neoplastic meningothelial (arachnoidal) cells.,https://www.ebi.ac.uk/ols/ontologies/mp/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FNCIT_C3230,standard
+tumorType,The type of cells that carcinoma arises from.,STRING,250,Not Applicable,,,standard
+specimenIdSource,The type of cells that carcinoma arises from.,STRING,250,,,,standard
+sex,The type of cells that carcinoma arises from.,STRING,250,male,,,standard
+sex,The type of cells that carcinoma arises from.,STRING,250,female,,,standard
+species,The name of a species (typically a taxonomic group) of organism.,STRING,250,Human,Homo sapiens with taxonomy ID: 9606 and Genbank common name: human,https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=9606&lvl=3&lin=f&keep=1&srchmode=1&unlock,standard
+species,The name of a species (typically a taxonomic group) of organism.,STRING,250,Mouse,Mus musculus with taxonomy ID: 10090 and Genbank common name: house mouse,https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=10090&lvl=3&lin=f&keep=1&srchmode=1&unlock,standard
+species,The name of a species (typically a taxonomic group) of organism.,STRING,250,Rat,Rattus with taxonomy ID: 10114 and inherited blast name: rodents,https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=10114&lvl=3&lin=f&keep=1&srchmode=1&unlock,standard
+species,The name of a species (typically a taxonomic group) of organism.,STRING,250,Drosophila melanogaster,Drosophila melanogaster with taxonomy ID: 7227 and Genbank common name: fruit fly,https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi,standard

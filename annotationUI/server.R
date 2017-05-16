@@ -13,7 +13,7 @@ server <- function(input, output) {
     # elsew
     #   return(dat)
     if (input$cat > 0) {
-      dat <- dat[which(dat$category %in% input$cat),]
+      dat <- dat[which(dat$project %in% input$cat),]
     }
     else{
       dat

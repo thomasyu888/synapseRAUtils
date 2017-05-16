@@ -29,7 +29,27 @@ library(shinydashboard)
 # library(httr)
 # install.packages("rjson")
 # library(rjson)
+
+# source('http://depot.sagebase.org/CRAN.R')
+# pkgInstall("synapseClient")
+
+library(synapseClient)
+# ----------------------------------------------------------------------
+# login to synapse
+# ----------------------------------------------------------------------
+synapseLogin()
+
+# ----------------------------------------------------------------------
 options(stringsAsFactors = FALSE)
+dat <- read.csv(file = "annotations/all.csv", header = T, sep = ",")
+# ----------------------------------------------------------------------
+# read data from synapse table 
+# ----------------------------------------------------------------------
+# test = read.delim(getFileLocation(synGet("syn9817606")), header = TRUE)
+# queryResult <- synTableQuery('select * from syn9817606')
+# table <- synGet('syn9817606')
+
+
 
 # ------------------------------------------------------------------------------
 # Global variables and data matrices
@@ -39,29 +59,29 @@ options(stringsAsFactors = FALSE)
 
 # Download raw jason data from github repo 
 # It uses libcurl under the hood to perform the request and retrieve the response.
-json.file <- getURL("https://raw.githubusercontent.com/Sage-Bionetworks/synapseAnnotations/master/synapseAnnotations/data/common/minimal_Sage_standard.json")
-json.file <- getURL("https://raw.githubusercontent.com/Sage-Bionetworks/synapseAnnotations/master/synapseAnnotations/data/common/minimal_Sage_analysis.json")
-
-# path <- '/Users/nasim/Documents/sage-internship/sage-projects/synapseAnnotations/synapseAnnotations/data/common/minimal_Sage_standard.json'
-# min.st.data <- jsonlite::fromJSON(path, flatten = T, simplifyMatrix = T, simplifyDataFrame = T)
-
+# json.file <- getURL("https://raw.githubusercontent.com/Sage-Bionetworks/synapseAnnotations/master/synapseAnnotations/data/common/minimal_Sage_standard.json")
 # json.file <- getURL("https://raw.githubusercontent.com/Sage-Bionetworks/synapseAnnotations/master/synapseAnnotations/data/common/minimal_Sage_analysis.json")
-# min.data <- jsonlite::fromJSON(json.file, flatten = T, simplifyMatrix = T, simplifyDataFrame = T)
-
-# Read json data into an R object matrix (nested dataframe)
-min.st.json <- jsonlite::fromJSON(json.file, simplifyDataFrame = T)
-min.st.json$enumValues <- lapply(min.st.json$enumValues, function(x){
-  if (dim(x)[2] == 0) {
-    x <- data.frame(value = character(),
-                    description = character(),
-                    source = character())
-    #matrix(ncol = 3, nrow = dim(x)[1]))
-    #names(x) <- c("value", "description", "source")
-    x[1, ] <- c("", "","")
-  }
-
-  return(x)
-})
+# 
+# # path <- '/Users/nasim/Documents/sage-internship/sage-projects/synapseAnnotations/synapseAnnotations/data/common/minimal_Sage_standard.json'
+# # min.st.data <- jsonlite::fromJSON(path, flatten = T, simplifyMatrix = T, simplifyDataFrame = T)
+# 
+# # json.file <- getURL("https://raw.githubusercontent.com/Sage-Bionetworks/synapseAnnotations/master/synapseAnnotations/data/common/minimal_Sage_analysis.json")
+# # min.data <- jsonlite::fromJSON(json.file, flatten = T, simplifyMatrix = T, simplifyDataFrame = T)
+# 
+# # Read json data into an R object matrix (nested dataframe)
+# min.st.json <- jsonlite::fromJSON(json.file, simplifyDataFrame = T)
+# min.st.json$enumValues <- lapply(min.st.json$enumValues, function(x){
+#   if (dim(x)[2] == 0) {
+#     x <- data.frame(value = character(),
+#                     description = character(),
+#                     source = character())
+#     #matrix(ncol = 3, nrow = dim(x)[1]))
+#     #names(x) <- c("value", "description", "source")
+#     x[1, ] <- c("", "","")
+#   }
+# 
+#   return(x)
+# })
 # lapply(min.st.data$enumValues,function(x){names(x)})
 
 # Display the internal structure of the R object
@@ -105,9 +125,9 @@ min.st.json$enumValues <- lapply(min.st.json$enumValues, function(x){
 # dat <- cbind(standard$name, standard$description, standard$columnType, standard$enumValues__value, standard$enumValues__source, standard$category)
 # dat$maximumSize <- as.numeric(dat$maximumSize)
 # write.csv(dat, file = "both.csv", row.names = F)
-dat <- read.csv("both.csv") 
-dat <- as.data.frame(dat, stringsAsFactor = F)
-categories <- lapply(unique(dat$category), function(x) {x})
+# dat <- read.csv("both.csv") 
+# dat <- as.data.frame(dat, stringsAsFactor = F)
+categories <- lapply(unique(dat$project), function(x) {x})
 # dat <- purch_items
 all.vars <- names(dat)
 
@@ -121,51 +141,51 @@ numeric.vars <- names(var.class[var.class %in% c("numeric", "integer")])
 # --------------
 # example code 
 # --------------
-
-purch_json <- '
-[
-  {
-  "name": "bob",
-  "purchases": [
-  {
-  "date": "2014/09/13",
-  "items": [
-  {"name": "shoes", "price": 187},
-  {"name": "belt", "price": 35}
-  ]
-  }
-  ]
-  },
-  {
-  "name": "susan",
-  "purchases": [
-  {
-  "date": "2014/10/01",
-  "items": [
-  {"name": "True", "price": 58},
-  {"name": "bag", "price": 118}
-  ]
-  },
-  {
-  "date": "2015/01/03",
-  "items": [
-  {"name": "shoes", "price": 115}
-  ]
-  }
-  ]
-  }
-  ]'
-purch_df <- jsonlite::fromJSON(purch_json, simplifyDataFrame = TRUE)
-purch_items <- purch_json %>%
-   gather_array %>%                                     # stack the users
-   spread_values(person = jstring("name")) %>%          # extract the user name
-   enter_object("purchases") %>% gather_array %>%       # stack the purchases
-   spread_values(purchase.date = jstring("date")) %>%   # extract the purchase date
-   enter_object("items") %>% gather_array %>%           # stack the items
-   spread_values(                                       # extract item name and price
-     item.name = jstring("name"),
-     item.price = jnumber("price")
-   ) %>%
- select(person, purchase.date, item.name, item.price) # select only what is needed
+# 
+# purch_json <- '
+# [
+#   {
+#   "name": "bob",
+#   "purchases": [
+#   {
+#   "date": "2014/09/13",
+#   "items": [
+#   {"name": "shoes", "price": 187},
+#   {"name": "belt", "price": 35}
+#   ]
+#   }
+#   ]
+#   },
+#   {
+#   "name": "susan",
+#   "purchases": [
+#   {
+#   "date": "2014/10/01",
+#   "items": [
+#   {"name": "True", "price": 58},
+#   {"name": "bag", "price": 118}
+#   ]
+#   },
+#   {
+#   "date": "2015/01/03",
+#   "items": [
+#   {"name": "shoes", "price": 115}
+#   ]
+#   }
+#   ]
+#   }
+#   ]'
+# purch_df <- jsonlite::fromJSON(purch_json, simplifyDataFrame = TRUE)
+# purch_items <- purch_json %>%
+#    gather_array %>%                                     # stack the users
+#    spread_values(person = jstring("name")) %>%          # extract the user name
+#    enter_object("purchases") %>% gather_array %>%       # stack the purchases
+#    spread_values(purchase.date = jstring("date")) %>%   # extract the purchase date
+#    enter_object("items") %>% gather_array %>%           # stack the items
+#    spread_values(                                       # extract item name and price
+#      item.name = jstring("name"),
+#      item.price = jnumber("price")
+#    ) %>%
+#  select(person, purchase.date, item.name, item.price) # select only what is needed
 
 # dat <- purch_items
